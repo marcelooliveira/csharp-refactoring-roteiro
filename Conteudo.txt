@@ -3,7 +3,7 @@
  - Colocar Método em Linha (Inline Method), 
  - Extrair Variável (Extract Variable), 
  - Colocar Variável em Linha (Inline Temp), 
- - Substituir Variável por Consulta (Replace Temp with Query, 
+ - Substituir Variável por Consulta (Replace Temp with Query), 
  - Quebrar Variável Temporária em Duas (Split Temporary Variable), 
  - Remover Atribuição a Parâmetros (Remove Assignments to Parameters), 
  - Substituir Método por Objeto de Método (Replace Method with Method Object), 
@@ -18,7 +18,6 @@
  - Introduzir Extensão Local (Introduce Local Extension)
 
 C# Refactorings Parte II: Organizing Data, Simplifying Conditional Expressions: 
- - Encapsular Campo (Self Encapsulate Field), 
  - Substituir Valor de Dados por Objeto (Replace Data Value with Object), 
  - Mudar Valor para Referência (Change Value to Reference), 
  - Mudar Referência para Valor (Change Reference to Value), 
