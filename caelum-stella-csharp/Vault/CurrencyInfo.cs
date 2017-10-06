@@ -181,7 +181,8 @@ namespace Caelum.Stella.CSharp.Vault
             return new RegionInfo(cultureInfo.Name);
         }
 
-        private static RegionInfo GetNativeRegionFromCurrencyCodeAndUserCulture(Enum currencyCode, out CultureInfo fallbackCulture)
+        private static RegionInfo GetNativeRegionFromCurrencyCodeAndUserCulture(
+            Enum currencyCode, out CultureInfo fallbackCulture)
         {
             // Get the current culture and region
             var userCulture = CultureInfo.CurrentCulture;
