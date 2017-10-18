@@ -6,18 +6,28 @@ namespace refatoracao.R08.ReplaceMethodWithMethodObject
 {
     class Produto
     {
-        public Produto()
+        private double precoBase;
+        private double acrescimo;
+        private double desconto;
+
+        public double PrecoBase { get => precoBase; }
+        public double Acrescimo { get => acrescimo; }
+        public double Desconto { get => desconto; }
+
+        public Produto(double precoBase, double acrescimo, double desconto)
         {
-            var preco = Preco();
+            this.precoBase = precoBase;
+            this.acrescimo = acrescimo;
+            this.desconto = desconto;
+
+            var preco = Preco(precoBase, acrescimo, desconto);
+
             Console.WriteLine($"O preço é {preco}");
         }
 
-        double Preco()
+        double Preco(double precoBase, double acrescimo, double desconto)
         {
-            double precoBase = 100.0;
-            double acrescimo = 10;
-            double desconto = 5;
-
+            //aqui viria um cálculo muito mais complicado do que esse...
             return precoBase + acrescimo - desconto;
         }
     }
