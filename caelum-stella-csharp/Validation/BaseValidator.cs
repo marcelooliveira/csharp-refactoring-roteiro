@@ -52,7 +52,7 @@ namespace Caelum.Stella.CSharp.Validation
 
                     return errors;
                 }
-                unformattedDocument = UnformatDocument(document);
+                unformattedDocument = new Document().UnformatDocument(document);
 
                 if (!CheckUnformattedDocument(unformattedDocument))
                     errors.Add(DocumentError.InvalidDigits);
@@ -107,11 +107,6 @@ namespace Caelum.Stella.CSharp.Validation
             return true;
         }
 
-        private string UnformatDocument(string document)
-        {
-            return document.Replace(".", "").Replace("-", "").Replace("/", ""); ;
-        }
-
         protected int GetComplementoDoModuloDe11(int soma)
         {
             return 11 - (soma % 11);
@@ -133,6 +128,14 @@ namespace Caelum.Stella.CSharp.Validation
                 .ToCharArray()
                 .Select(c => int.Parse(c.ToString()))
                 .ToArray();
+        }
+    }
+
+    class Document
+    {
+        public string UnformatDocument(string document)
+        {
+            return document.Replace(".", "").Replace("-", "").Replace("/", ""); ;
         }
     }
 }
