@@ -34,19 +34,29 @@ namespace Caelum.Stella.CSharp.Http
         public Endereco GetEndereco(CEP cep)
         {
             var json = GetViaCEPClient().GetEndereco(cep, OutputType.Json);
-            return TryConvertToEndereco(
-                JsonConvert.DeserializeObject<Endereco>(json) as Endereco);
+            var endereco = JsonConvert.DeserializeObject<Endereco>(json) as Endereco;
+            return TryConvertToEndereco(endereco.CEP, endereco.Logradouro, endereco.Complemento
+                        , endereco.Bairro, endereco.Localidade, endereco.UF
+                        , endereco.Unidade, endereco.IBGE, endereco.GIA);
         }
 
         public async Task<Endereco> GetEnderecoAsync(CEP cep)
         {
             var json = await GetViaCEPClient().GetEnderecoAsync(cep, OutputType.Json);
-            return TryConvertToEndereco(
-                JsonConvert.DeserializeObject<Endereco>(json) as Endereco);
+            var endereco = JsonConvert.DeserializeObject<Endereco>(json) as Endereco;
+            return TryConvertToEndereco(endereco.CEP, endereco.Logradouro, endereco.Complemento
+                        , endereco.Bairro, endereco.Localidade, endereco.UF
+                        , endereco.Unidade, endereco.IBGE, endereco.GIA);
         }
 
-        private static Endereco TryConvertToEndereco(Endereco endereco)
+        private static Endereco TryConvertToEndereco(string cep, string logradouro, string complemento
+                        , string bairro, string localidade, string uf
+                        , string unidade, string ibge, string gia)
         {
+            var endereco = new Endereco(cep, logradouro, complemento
+                        , bairro, localidade, uf
+                        , unidade, ibge, gia);
+
             if (endereco.IsValid())
             {
                 return endereco;
