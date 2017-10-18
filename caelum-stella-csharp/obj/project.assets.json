@@ -3007,12 +3007,9 @@
   },
   "project": {
     "version": "1.4.7",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\marce\\Documents\\GitHub\\csharp-refactoring-roteiro\\caelum-stella-csharp\\caelum-stella-csharp.csproj",
-      "projectName": "caelum-stella-csharp",
+      "projectName": "Caelum.Stella.CSharp",
       "projectPath": "C:\\Users\\marce\\Documents\\GitHub\\csharp-refactoring-roteiro\\caelum-stella-csharp\\caelum-stella-csharp.csproj",
       "packagesPath": "C:\\Users\\marce\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\marce\\Documents\\GitHub\\csharp-refactoring-roteiro\\caelum-stella-csharp\\obj\\",

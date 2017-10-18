@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Conteudo", "Conteudo", "{B9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F360D897-51BF-4769-8A3B-BE590CF075CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "refatoracao", "refatoracao\refatoracao.csproj", "{B6D0DB85-54D1-45EE-8D9B-24DABADA6E7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{5EA8C917-01B1-4F38-BDD8-BBBD3ACCD53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EA8C917-01B1-4F38-BDD8-BBBD3ACCD53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EA8C917-01B1-4F38-BDD8-BBBD3ACCD53D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6D0DB85-54D1-45EE-8D9B-24DABADA6E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6D0DB85-54D1-45EE-8D9B-24DABADA6E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6D0DB85-54D1-45EE-8D9B-24DABADA6E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6D0DB85-54D1-45EE-8D9B-24DABADA6E7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
