@@ -1,4 +1,5 @@
 ﻿using refatoracao.R06.SplitTemporaryVariable;
+using refatoracao.R08.ReplaceMethodWithMethodObject;
 using System;
 
 namespace refatoracao
@@ -9,6 +10,11 @@ namespace refatoracao
         {
             var retangulo = new Retangulo(3, 4);
             Console.WriteLine();
+
+            var preco = new Produto();
+            Console.WriteLine();
+
+
         }
     }
 }
