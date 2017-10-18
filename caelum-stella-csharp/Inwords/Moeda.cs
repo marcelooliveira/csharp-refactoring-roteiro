@@ -24,13 +24,8 @@ namespace Caelum.Stella.CSharp.Inwords
         public override string Extenso()
         {
             StringBuilder builder = new StringBuilder();
-            BuildInteiros(numeroOrigem, builder);
-            BuildCentavos(numeroOrigem, builder);
-            return builder.ToString();
-        }
 
-        private void BuildInteiros(double numeroOrigem, StringBuilder builder)
-        {
+            //Montar os inteiros
             if (numeroOrigem < 0)
             {
                 throw new ArgumentOutOfRangeException();
@@ -41,6 +36,19 @@ namespace Caelum.Stella.CSharp.Inwords
                 BuildPreposicaoMilhoes(numeroOrigem, builder);
                 BuildPalavraMoeda(numeroOrigem, builder);
             }
+
+            //Montar os centavos
+            double centavos = Math.Round((numeroOrigem - Math.Truncate(numeroOrigem)) * 100);
+            if (centavos > 0)
+            {
+                if (numeroOrigem >= 1.0)
+                    builder.Append(ResourceManagerHelper.Instance.ResourceManager.GetString("Extensosep"));
+
+                BuildNumeroCentavos(centavos, builder);
+                builder.Append(" ");
+                BuildPalavraCentavos(centavos, builder);
+            }
+            return builder.ToString();
         }
 
         protected virtual void BuildPreposicaoMilhoes(double numeroOrigem, StringBuilder builder)
@@ -65,19 +73,6 @@ namespace Caelum.Stella.CSharp.Inwords
                 builder.Append(MoedaSingular);
         }
 
-        private void BuildCentavos(double numeroOrigem, StringBuilder builder)
-        {
-            double centavos = Math.Round((numeroOrigem - Math.Truncate(numeroOrigem)) * 100);
-            if (centavos > 0)
-            {
-                if (numeroOrigem >= 1.0)
-                    builder.Append(ResourceManagerHelper.Instance.ResourceManager.GetString("Extensosep"));
-
-                BuildNumeroCentavos(centavos, builder);
-                builder.Append(" ");
-                BuildPalavraCentavos(centavos, builder);
-            }
-        }
 
         private void BuildNumeroCentavos(double centavos, StringBuilder builder)
         {
