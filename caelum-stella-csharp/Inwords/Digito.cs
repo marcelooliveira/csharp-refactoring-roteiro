@@ -62,7 +62,11 @@ namespace Caelum.Stella.CSharp.Inwords
 
         protected bool Plural
         {
-            get { return numero > 1; }
+            get
+            {
+                bool numeroMaiorQueUm = numero > 1;
+                return numeroMaiorQueUm;
+            }
         }
     }
 }
