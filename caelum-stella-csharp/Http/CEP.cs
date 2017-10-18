@@ -19,16 +19,11 @@ namespace Caelum.Stella.CSharp.Http
             if (cepAsString == null)
                 this.cepAsString = null;
             else if (Regex.IsMatch(cepAsString, RegexFormatted))
-                this.cepAsString = UnformatCEP(cepAsString);
+                this.cepAsString = cepAsString.Replace("-", "");
             else if (new Regex(RegexUnformatted).IsMatch(cepAsString))
                 this.cepAsString = cepAsString;
             else
                 throw new InvalidZipCodeFormat();
-        }
-
-        private static string UnformatCEP(string cepAsString)
-        {
-            return cepAsString.Replace("-", "");
         }
 
         public bool IsNull => string.IsNullOrEmpty(cepAsString);
