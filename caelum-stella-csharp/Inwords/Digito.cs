@@ -6,15 +6,13 @@ namespace Caelum.Stella.CSharp.Inwords
 {
     abstract class Digito
     {
-        protected readonly long numero;
+        public readonly long Numero;
         protected readonly double posicao;
         protected readonly Digito digitoFilho;
 
-        public long Numero { get { return numero; } }
-
         public Digito(long numero, double posicao, Digito digitoFilho)
         {
-            this.numero = numero;
+            this.Numero = numero;
             this.posicao = posicao;
             this.digitoFilho = digitoFilho;
         }
@@ -29,7 +27,7 @@ namespace Caelum.Stella.CSharp.Inwords
 
         protected double ValorSomenteDoDigito()
         {
-            return numero * (int)Math.Pow(10, posicao - 1);
+            return Numero * (int)Math.Pow(10, posicao - 1);
         }
 
         protected double ValorDosFilhos()
@@ -64,7 +62,7 @@ namespace Caelum.Stella.CSharp.Inwords
         {
             get
             {
-                bool numeroMaiorQueUm = numero > 1;
+                bool numeroMaiorQueUm = Numero > 1;
                 return numeroMaiorQueUm;
             }
         }

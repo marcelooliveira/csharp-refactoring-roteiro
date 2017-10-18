@@ -17,7 +17,7 @@ namespace Caelum.Stella.CSharp.Inwords
             else
             {
                 string esteDigitoExtenso = string.Empty;
-                if (numero == 1)
+                if (Numero == 1)
                     esteDigitoExtenso = ResourceManagerHelper.Instance.ResourceManager.GetString("Extenso100mais");
                 else
                     esteDigitoExtenso = base.Extenso();
