@@ -11,7 +11,9 @@ namespace refatoracao
             var retangulo = new Retangulo(3, 4);
             Console.WriteLine();
 
-            var preco = new Produto(100, 10, 5);
+            new R08.ReplaceMethodWithMethodObject.antes.Produto(100, 10, 5);
+            Console.WriteLine();
+            new R08.ReplaceMethodWithMethodObject.depois.Produto(100, 10, 5);
             Console.WriteLine();
 
 

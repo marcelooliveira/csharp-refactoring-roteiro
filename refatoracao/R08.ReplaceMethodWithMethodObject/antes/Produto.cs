@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace refatoracao.R08.ReplaceMethodWithMethodObject
+namespace refatoracao.R08.ReplaceMethodWithMethodObject.antes
 {
     class Produto
     {
@@ -22,7 +22,7 @@ namespace refatoracao.R08.ReplaceMethodWithMethodObject
 
             var preco = Preco(precoBase, acrescimo, desconto);
 
-            Console.WriteLine($"O preço é {preco}");
+            Console.WriteLine($"ANTES: O preço é {preco}");
         }
 
         double Preco(double precoBase, double acrescimo, double desconto)
