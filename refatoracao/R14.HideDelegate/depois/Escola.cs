@@ -17,7 +17,7 @@ namespace refatoracao.R14.HideDelegate.depois
 
     class Funcionario
     {
-        private Departamento Departamento { get; private set; }
+        private Departamento Departamento { get; }
         public Funcionario Diretor {
             get
             {
