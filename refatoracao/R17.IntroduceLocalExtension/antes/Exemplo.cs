@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace refatoracao.R16.IntroduceForeignMethod.depois
+namespace refatoracao.R17.IntroduceLocalExtension.antes
 {
     class Exemplo
     {

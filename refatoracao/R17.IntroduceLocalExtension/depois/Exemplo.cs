@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace refatoracao.R16.IntroduceForeignMethod.depois
+namespace refatoracao.R17.IntroduceLocalExtension.depois
 {
     class Exemplo
     {
         public Exemplo()
         {
             var data = DateTime.Today;
-            var ultimoDiaDoMes = UltimoDiaDoMes(data);
+            var ultimoDiaDoMes = data.UltimoDiaDoMes();
         }
 
-        private DateTime UltimoDiaDoMes(DateTime data)
+    }
+
+    static class DateTimeExtensions
+    {
+        public static DateTime UltimoDiaDoMes(this DateTime data)
         {
             return new DateTime(data.Year, data.Month, DateTime.DaysInMonth(data.Year, data.Month));
         }
