@@ -10,6 +10,13 @@ namespace refatoracao.R12.ExtractClass.depois
         public string CNPJ { get; private set; }
         public Endereco EnderecoEntrega { get; private set; }
         public Endereco EnderecoCobranca { get; private set; }
+
+        public Empresa(Endereco enderecoEntrega,
+                       Endereco enderecoCobranca)
+        {
+            this.EnderecoEntrega = enderecoEntrega;
+            this.EnderecoCobranca = enderecoCobranca;
+        }
     }
 
     class Endereco
