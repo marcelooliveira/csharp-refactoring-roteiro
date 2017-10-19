@@ -9,9 +9,7 @@ namespace refatoracao.R16.IntroduceForeignMethod.antes
         public Exemplo()
         {
             var data = DateTime.Today;
-
-            //criar novo método na classe DateTime para obter o último dia do mês
-            //var ultimoDiaDoMes = ???
+            var ultimoDiaDoMes = new DateTime(data.Year, data.Month, DateTime.DaysInMonth(data.Year, data.Month));
         }
     }
 }
