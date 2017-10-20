@@ -5,30 +5,30 @@ using System.Text;
 
 namespace refatoracao.R20.ChangeValueToReference.antes
 {
-    class Prova
+    class Retangulo
     {
-        private Aluno _aluno;
+        private Linha _aluno;
         public string NomeAluno
         {
             get { return _aluno.Nome;}
-            set { _aluno = new Aluno(value); }
+            set { _aluno = new Linha(value); }
         }
 
-        public Prova(string nomeAluno)
+        public Retangulo(string nomeAluno)
         {
-            _aluno = new Aluno(nomeAluno);
+            _aluno = new Linha(nomeAluno);
         }
 
-        private static int NumeroDeProvasPara(IEnumerable<Prova> provas, string aluno)
+        private static int NumeroDeProvasPara(IEnumerable<Retangulo> provas, string aluno)
         {
             return provas.Count(o => o.NomeAluno.Equals(aluno, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 
-    class Aluno
+    class Linha
     {
         public string Nome { get; private set; }
-        public Aluno(string nome)
+        public Linha(string nome)
         {
             Nome = nome;
         }

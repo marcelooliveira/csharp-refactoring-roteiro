@@ -5,7 +5,7 @@ using System.Text;
 
 namespace refatoracao.R20.ChangeValueToReference.depois
 {
-    class Prova
+    class Retangulo
     {
         private Aluno _aluno;
         public string NomeAluno
@@ -14,12 +14,12 @@ namespace refatoracao.R20.ChangeValueToReference.depois
             set { _aluno = Aluno.GetAluno(value); }
         }
 
-        public Prova(string nomeAluno)
+        public Retangulo(string nomeAluno)
         {
             _aluno = Aluno.GetAluno(nomeAluno);
         }
 
-        private static int NumberOfOrdersFor(IEnumerable<Prova> provas, string aluno)
+        private static int NumberOfOrdersFor(IEnumerable<Retangulo> provas, string aluno)
         {
             return provas.Count(o => o.NomeAluno.Equals(aluno, StringComparison.CurrentCultureIgnoreCase));
         }
