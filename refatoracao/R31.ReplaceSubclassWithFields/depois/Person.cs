@@ -4,24 +4,24 @@ using System.Text;
 
 namespace refatoracao.R31.ReplaceSubclassWithFields.depois
 {
-    class Person
-    {
-        public char Code { get; private set; }
-
-        private Person(char code)
+        class Person
         {
-            Code = code;
-        }
+            public char Code { get; private set; }
 
-        static Person CreateMale()
-        {
-            return new Person('M');
-        }
+            private Person(char code)
+            {
+                Code = code;
+            }
 
-        static Person CreateFemale()
-        {
-            return new Person('F');
+            static Person CreateMale()
+            {
+                return new Person('M');
+            }
+
+            static Person CreateFemale()
+            {
+                return new Person('F');
+            }
         }
-    }
 
 }
