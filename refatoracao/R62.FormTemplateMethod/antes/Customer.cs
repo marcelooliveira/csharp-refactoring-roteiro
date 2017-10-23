@@ -6,6 +6,12 @@ namespace refatoracao.R62.FormTemplateMethod.antes
 {
     class Customer
     {
+        public Customer()
+        {
+            var statement = GetStatement();
+            var htmlStatement = GetHTMLStatement();
+        }
+
         public string GetStatement()
         {
             var result = new StringBuilder();
