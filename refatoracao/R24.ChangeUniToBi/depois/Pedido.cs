@@ -9,7 +9,7 @@ namespace refatoracao.R24.ChangeUniToBi.depois
         private HashSet<Cliente> _clientes = new HashSet<Cliente>();
         public IEnumerable<Cliente> Clientes
         {
-            get { return _clientes; }
+            get { return _clientes; }       
         }
 
         public void AddCliente(Cliente cliente)
@@ -38,12 +38,12 @@ namespace refatoracao.R24.ChangeUniToBi.depois
             get { return _pedidos; }
         }
 
-        public void AddOrder(Pedido pedido)
+        public void AddPedido(Pedido pedido)
         {
             pedido.AddCliente(this);
         }
 
-        public void RemoveCustomer(Pedido pedido)
+        public void RemoveCliente(Pedido pedido)
         {
             pedido.RemoveCliente(this);
         }
