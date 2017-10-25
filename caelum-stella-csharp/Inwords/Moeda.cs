@@ -53,16 +53,11 @@ namespace Caelum.Stella.CSharp.Inwords
 
         protected virtual void BuildPreposicaoMilhoes(double numeroOrigem, StringBuilder builder)
         {
-            if (NumeroMaiorOuIgualAUmMilhao(numeroOrigem)
+            if (numeroOrigem >= 1000000
                 && Math.Truncate(numeroOrigem) % 1000000 == 0)
                 builder.Append(" de ");
             else
                 builder.Append(" ");
-        }
-
-        private static bool NumeroMaiorOuIgualAUmMilhao(double numeroOrigem)
-        {
-            return numeroOrigem >= 1000000;
         }
 
         private void BuildNumeroMoeda(double numeroOrigem, StringBuilder builder)
