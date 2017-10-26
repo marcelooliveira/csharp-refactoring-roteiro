@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="R07.RemoveAssignmentsToParameters\depois\" />
     <Folder Include="R18.SelfEncapsulateField\antes\" />
     <Folder Include="R33.ConsolidateConditionalExpression\antes\" />
     <Folder Include="R33.ConsolidateConditionalExpression\depois\" />
