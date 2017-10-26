@@ -31,7 +31,6 @@ namespace refatoracao.R11.MoveField.depois
         public decimal JurosAoMes
         {
             get { return jurosAoMes; }
-            set { jurosAoMes = value; }
         }
     }
 
