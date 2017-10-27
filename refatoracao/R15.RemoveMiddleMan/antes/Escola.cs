@@ -25,6 +25,13 @@ namespace refatoracao.R15.RemoveMiddleMan.antes
                 return Departamento.Escola.Diretor;
             }
         }
+
+        private decimal salario;
+        public decimal Salario
+        {
+            get { return salario; }
+            set { salario = value; }
+        }
     }
 
     class Empregado
@@ -41,6 +48,11 @@ namespace refatoracao.R15.RemoveMiddleMan.antes
             {
                 return funcionario.Diretor;
             }
+        }
+
+        public decimal Salario
+        {
+            get { return funcionario.Salario; }
         }
     }
 
