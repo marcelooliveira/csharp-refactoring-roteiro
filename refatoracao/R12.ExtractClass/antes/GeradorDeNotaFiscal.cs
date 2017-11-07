@@ -6,7 +6,7 @@ namespace refatoracao.R12.ExtractClass.antes
 {
     public class GeradorDeNotaFiscal
     {
-        public NotaFiscal gera(Fatura fatura)
+        public NotaFiscal Gera(Fatura fatura)
         {
             // calcula valor do imposto
             decimal valor = fatura.GetValorMensal();

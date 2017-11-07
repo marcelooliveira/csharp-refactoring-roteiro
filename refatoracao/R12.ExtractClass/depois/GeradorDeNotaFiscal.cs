@@ -4,9 +4,42 @@ using System.Text;
 
 namespace refatoracao.R12.ExtractClass.depois
 {
+    public class EnviadorDeEmail
+    {
+        public void EnviaEmail(NotaFiscal nf)
+        {
+            String msgDoEmail = "Caro cliente,<br/>";
+            msgDoEmail += "É com prazer que lhe avisamos que sua nota fiscal foi "
+                        + "gerada no valor de " + nf.GetValorLiquido() + ".<br/>";
+            msgDoEmail += "Acesse o site da prefeitura e faça o download.<br/><br/>";
+            msgDoEmail += "Obrigado!";
+
+            Console.WriteLine(msgDoEmail);
+        }
+    }
+
+    public class NFDao
+    {
+        public void SalvaNoBanco(NotaFiscal nf)
+        {
+            String sql = "insert into notafiscal (cliente, valor)" +
+                         "values (?," + nf.GetValorLiquido() + ")";
+
+            Console.WriteLine("Salvando no banco" + sql);
+        }
+
+    }
     public class GeradorDeNotaFiscal
     {
-        public NotaFiscal gera(Fatura fatura)
+        public NotaFiscal Gera(Fatura fatura)
+        {
+            NotaFiscal nf = GeraNF(fatura);
+            new EnviadorDeEmail().EnviaEmail(nf);
+            new NFDao().SalvaNoBanco(nf);
+            return nf;
+        }
+
+        private NotaFiscal GeraNF(Fatura fatura)
         {
             // calcula valor do imposto
             decimal valor = fatura.GetValorMensal();
@@ -25,24 +58,27 @@ namespace refatoracao.R12.ExtractClass.depois
             }
 
             NotaFiscal nf = new NotaFiscal(valor, imposto);
-
-            // envia email
-            String msgDoEmail = "Caro cliente,<br/>";
-            msgDoEmail += "É com prazer que lhe avisamos que sua nota fiscal foi "
-                        + "gerada no valor de " + nf.GetValorLiquido() + ".<br/>";
-            msgDoEmail += "Acesse o site da prefeitura e faça o download.<br/><br/>";
-            msgDoEmail += "Obrigado!";
-
-            Console.WriteLine(msgDoEmail);
-
-            // salva no banco
-            String sql = "insert into notafiscal (cliente, valor)" +
-                         "values (?," + nf.GetValorLiquido() + ")";
-
-            Console.WriteLine("Salvando no banco" + sql);
-
             return nf;
         }
+
+        //private void EnviaEmail(NotaFiscal nf)
+        //{
+        //    String msgDoEmail = "Caro cliente,<br/>";
+        //    msgDoEmail += "É com prazer que lhe avisamos que sua nota fiscal foi "
+        //                + "gerada no valor de " + nf.GetValorLiquido() + ".<br/>";
+        //    msgDoEmail += "Acesse o site da prefeitura e faça o download.<br/><br/>";
+        //    msgDoEmail += "Obrigado!";
+
+        //    Console.WriteLine(msgDoEmail);
+        //}
+
+        //private void SalvaNoBanco(NotaFiscal nf)
+        //{
+        //    String sql = "insert into notafiscal (cliente, valor)" +
+        //                 "values (?," + nf.GetValorLiquido() + ")";
+
+        //    Console.WriteLine("Salvando no banco" + sql);
+        //}
     }
 
     public class Fatura
