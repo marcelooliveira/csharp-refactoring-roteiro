@@ -7,7 +7,7 @@ namespace refatoracao.R25.ChangeBiToUni.depois
     class Pedido
     {
         private HashSet<Cliente> _clientes = new HashSet<Cliente>();
-        public IEnumerable<Cliente> Customers
+        public IEnumerable<Cliente> Clientes
         {
             get { return _clientes; }
         }
