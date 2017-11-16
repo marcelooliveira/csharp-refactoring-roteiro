@@ -56,9 +56,9 @@ namespace refatoracao.R15.RemoveMiddleMan.antes
         }
     }
 
-    class Teste
+    class Programa
     {
-        public Teste()
+        public Programa()
         {
             var maria = new Empregado(new Funcionario());
             var diretorDaMaria = maria.Diretor;
