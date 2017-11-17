@@ -40,7 +40,7 @@ namespace refatoracao.R37.ReplaceConditionalWithPolymorphism.depois
         }
     }
 
-    public class WALLY : Robo
+    public class Wally : Robo
     {
         private readonly int numeroDeBlocos = 34;
         public override double GetVelocidade()
@@ -49,7 +49,7 @@ namespace refatoracao.R37.ReplaceConditionalWithPolymorphism.depois
         }
     }
 
-    public class BAYMAX : Robo
+    public class Baymax : Robo
     {
         private readonly bool comArmadura = false;
         public override double GetVelocidade()
