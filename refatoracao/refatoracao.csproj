@@ -10,7 +10,6 @@
     <Folder Include="R33.ConsolidateConditionalExpression\depois\" />
     <Folder Include="R34.ConsolidateDuplicateConditionalFragments\antes\" />
     <Folder Include="R34.ConsolidateDuplicateConditionalFragments\depois\" />
-    <Folder Include="R35.RemoveControlFlag\antes\" />
     <Folder Include="R35.RemoveControlFlag\depois\" />
     <Folder Include="R45.ReplaceParameterWithExplicitMethods\antes\" />
     <Folder Include="R45.ReplaceParameterWithExplicitMethods\depois\" />
