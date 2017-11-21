@@ -7,10 +7,16 @@ namespace refatoracao.R26.ReplaceMagicNumber.depois
     class ICMS
     {
         private const decimal ICMS_SP_PARA_SP = 0.18m;
+        private const decimal ICMS_PADRAO = 0.15m;
+        private const string SAO_PAULO = "SP";
 
-        public decimal ValorICMSSPParaSP(decimal valor)
+        public static decimal CalcularValor(decimal aliquota, string uf)
         {
-            return valor * ICMS_SP_PARA_SP;
+            if (uf == SAO_PAULO)
+            {
+                return aliquota * ICMS_SP_PARA_SP;
+            }
+            return aliquota * ICMS_PADRAO;
         }
     }
 }

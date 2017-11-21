@@ -4,48 +4,50 @@ using System.Text;
 
 namespace refatoracao.R24.ChangeUniToBi.depois
 {
-    class Pedido
+    class Pedido : IDisposable
     {
-        private HashSet<Cliente> _clientes = new HashSet<Cliente>();
-        public IEnumerable<Cliente> Clientes
+        private Cliente cliente;
+        internal Cliente Cliente
         {
-            get { return _clientes; }       
+            get
+            {
+                return cliente;
+            }
         }
 
-        public void Adiciona(Cliente cliente)
+        public Pedido(Cliente cliente)
         {
-            cliente.PedidosDeAmigos.Add(this);
-            _clientes.Add(cliente);
+            this.cliente = cliente;
+            this.cliente.Adiciona(this);
         }
 
-        public void Remove(Cliente cliente)
+        public void Dispose()
         {
-            cliente.PedidosDeAmigos.Remove(this);
-            _clientes.Remove(cliente);
+            this.cliente = null;
         }
     }
 
     class Cliente
     {
-        private HashSet<Pedido> _pedidos = new HashSet<Pedido>();
+        private HashSet<Pedido> pedidos = new HashSet<Pedido>();
         public IEnumerable<Pedido> Pedidos
         {
-            get { return _pedidos; }
+            get { return pedidos; }
         }
 
         internal HashSet<Pedido> PedidosDeAmigos
         {
-            get { return _pedidos; }
+            get { return pedidos; }
         }
 
         public void Adiciona(Pedido pedido)
         {
-            pedido.Adiciona(this);
+            pedidos.Add(pedido);
         }
 
         public void Remove(Pedido pedido)
         {
-            pedido.Remove(this);
+            pedidos.Remove(pedido);
         }
     }
 }

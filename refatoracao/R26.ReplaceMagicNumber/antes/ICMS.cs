@@ -6,9 +6,13 @@ namespace refatoracao.R26.ReplaceMagicNumber.antes
 {
     class ICMS
     {
-        public decimal ValorICMS(decimal valor)
+        public static decimal CalcularValor(decimal aliquota, string uf)
         {
-            return valor * 0.18m;
+            if (uf == "SP")
+            {
+                return aliquota * 0.18m;
+            }
+            return aliquota * 0.15m;
         }
-    }    
+    }
 }
