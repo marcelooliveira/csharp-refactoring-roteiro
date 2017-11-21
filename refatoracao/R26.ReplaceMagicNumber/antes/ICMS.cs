@@ -10,5 +10,5 @@ namespace refatoracao.R26.ReplaceMagicNumber.antes
         {
             return valor * 0.18m;
         }
-    }
+    }    
 }

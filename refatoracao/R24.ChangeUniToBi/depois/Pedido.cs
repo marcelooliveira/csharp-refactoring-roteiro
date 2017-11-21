@@ -12,13 +12,13 @@ namespace refatoracao.R24.ChangeUniToBi.depois
             get { return _clientes; }       
         }
 
-        public void AddCliente(Cliente cliente)
+        public void Adiciona(Cliente cliente)
         {
             cliente.PedidosDeAmigos.Add(this);
             _clientes.Add(cliente);
         }
 
-        public void RemoveCliente(Cliente cliente)
+        public void Remove(Cliente cliente)
         {
             cliente.PedidosDeAmigos.Remove(this);
             _clientes.Remove(cliente);
@@ -38,14 +38,14 @@ namespace refatoracao.R24.ChangeUniToBi.depois
             get { return _pedidos; }
         }
 
-        public void AddPedido(Pedido pedido)
+        public void Adiciona(Pedido pedido)
         {
-            pedido.AddCliente(this);
+            pedido.Adiciona(this);
         }
 
-        public void RemoveCliente(Pedido pedido)
+        public void Remove(Pedido pedido)
         {
-            pedido.RemoveCliente(this);
+            pedido.Remove(this);
         }
     }
 }
