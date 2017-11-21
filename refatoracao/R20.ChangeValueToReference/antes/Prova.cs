@@ -5,42 +5,42 @@ using System.Text;
 
 namespace refatoracao.R20.ChangeValueToReference.antes
 {
-    class Retangulo
+    class Prova
     {
-        private Linha _aluno;
+        private Aluno _aluno;
         public string NomeAluno
         {
-            get { return _aluno.Nome;}
-            set { _aluno = new Linha(value); }
+            get { return _aluno.nome;}
+            set { _aluno = new Aluno(value); }
         }
 
-        public Retangulo(string nomeAluno)
+        public Prova(string nomeAluno)
         {
-            _aluno = new Linha(nomeAluno);
+            _aluno = new Aluno(nomeAluno);
         }
 
-        private static int NumeroDeProvasPara(IEnumerable<Retangulo> provas, string aluno)
+        private static int NumeroDeProvasPara(IEnumerable<Prova> provas, string aluno)
         {
             return provas.Count(o => o.NomeAluno.Equals(aluno, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 
-    class Linha
+    class Aluno
     {
-        public string Nome { get; private set; }
-        public Linha(string nome)
+        public readonly string nome;
+        public Aluno(string nome)
         {
-            Nome = nome;
+            this.nome = nome;
         }
 
         public override bool Equals(object obj)
         {
-            return Nome.Equals(obj);
+            return nome.Equals(obj);
         }
 
         public override int GetHashCode()
         {
-            return Nome.GetHashCode();
+            return nome.GetHashCode();
         }
     }
 }
