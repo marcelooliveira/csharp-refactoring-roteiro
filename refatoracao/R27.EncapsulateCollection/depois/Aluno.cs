@@ -8,7 +8,7 @@ namespace refatoracao.R27.EncapsulateCollection.depois
     class Aluno
     {
         private readonly List<Curso> cursos;
-        public ICollection<Curso> Cursos
+        public IReadOnlyCollection<Curso> Cursos
         {
             get
             {
@@ -34,6 +34,29 @@ namespace refatoracao.R27.EncapsulateCollection.depois
 
     class Curso
     {
+        readonly string nome;
+        public string Nome
+        {
+            get
+            {
+                return nome;
+            }
+        }
 
+        public Curso(string nome)
+        {
+            this.nome = nome;
+        }
+    }
+
+    class Exemplo
+    {
+        void Testar()
+        {
+            Aluno aluno = new Aluno();
+            aluno.AddCurso(new Curso("JavaScript Básico"));
+            aluno.AddCurso(new Curso("C# Intermediário"));
+            aluno.AddCurso(new Curso("Java Avançado"));
+        }
     }
 }
