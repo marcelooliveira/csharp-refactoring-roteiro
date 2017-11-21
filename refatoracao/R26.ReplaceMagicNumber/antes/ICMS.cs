@@ -4,11 +4,11 @@ using System.Text;
 
 namespace refatoracao.R26.ReplaceMagicNumber.antes
 {
-    class Fisica
+    class ICMS
     {
-        public double EnergiaPotencial(double massa, double altura)
+        public decimal ValorICMS(decimal valor)
         {
-            return massa * altura * 9.81;
+            return valor * 0.18m;
         }
     }
 }
