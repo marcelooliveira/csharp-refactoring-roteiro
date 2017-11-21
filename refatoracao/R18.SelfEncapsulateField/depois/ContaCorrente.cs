@@ -26,5 +26,10 @@ namespace refatoracao.R18.SelfEncapsulateField.depois
 
             this.saldo -= valor;
         }
+
+        public void Depositar(decimal valor)
+        {
+            this.saldo += valor;
+        }
     }
 }
