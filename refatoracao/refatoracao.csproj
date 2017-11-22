@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="R33.ConsolidateConditionalExpression\antes\" />
-    <Folder Include="R33.ConsolidateConditionalExpression\depois\" />
-    <Folder Include="R34.ConsolidateDuplicateConditionalFragments\antes\" />
-    <Folder Include="R34.ConsolidateDuplicateConditionalFragments\depois\" />
     <Folder Include="R45.ReplaceParameterWithExplicitMethods\antes\" />
     <Folder Include="R45.ReplaceParameterWithExplicitMethods\depois\" />
     <Folder Include="R47.ReplaceParameterWMethodCall\antes\" />
