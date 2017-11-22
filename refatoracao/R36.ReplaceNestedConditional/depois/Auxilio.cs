@@ -41,15 +41,15 @@ namespace refatoracao.R36.ReplaceNestedConditional.depois
         {
             if (ehFalecido)
             {
-                return ValorFalecido;
+                return ValorFalecido; //early return
             }
             if (ehSeparado)
             {
-                return ValorSeparado;
+                return ValorSeparado; //early return
             }
             if (ehAposentado)
             {
-                return ValorAposentado;
+                return ValorAposentado; //early return
             }
             return ValorNormal;
         }
