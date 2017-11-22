@@ -24,4 +24,8 @@
     <Folder Include="R37.xxx\depois\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.Contracts" Version="4.3.0" />
+  </ItemGroup>
+
 </Project>
