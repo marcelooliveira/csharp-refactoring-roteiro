@@ -6,45 +6,52 @@ namespace refatoracao.R36.ReplaceNestedConditional.depois
 {
     class Auxilio
     {
-        private bool ehFalecido;
-        private bool ehSeparado;
-        private bool ehAposentado;
+        private readonly double valorNormal;
+        private double ValorNormal => valorNormal;
+
+        private readonly double valorAposentado;
+        private double ValorAposentado => valorAposentado;
+
+        private readonly double valorSeparado;
+        private double ValorSeparado => valorSeparado;
+
+        private readonly double valorFalecido;
+        private double ValorFalecido => valorFalecido;
+
+        private readonly bool ehFalecido;
+        private readonly bool ehSeparado;
+        private readonly bool ehAposentado;
+
+        public Auxilio(double valorNormal,
+            double valorAposentado,
+            double valorSeparado,
+            double valorFalecido,
+            bool ehFalecido, bool ehSeparado, bool ehAposentado)
+        {
+            this.valorNormal = valorNormal;
+            this.valorAposentado = valorAposentado;
+            this.valorSeparado = valorSeparado;
+            this.valorFalecido = valorFalecido;
+            this.ehFalecido = ehFalecido;
+            this.ehSeparado = ehSeparado;
+            this.ehAposentado = ehAposentado;
+        }
 
         public double GetPagamento()
         {
             if (ehFalecido)
             {
-                return ValorFalecido();
+                return ValorFalecido;
             }
             if (ehSeparado)
             {
-                return ValorSeparado();
+                return ValorSeparado;
             }
             if (ehAposentado)
             {
-                return ValorAposentado();
+                return ValorAposentado;
             }
-            return ValorNormal();
-        }
-
-        private double ValorNormal()
-        {
-            throw new NotImplementedException();
-        }
-
-        private double ValorAposentado()
-        {
-            throw new NotImplementedException();
-        }
-
-        private double ValorSeparado()
-        {
-            throw new NotImplementedException();
-        }
-
-        private double ValorFalecido()
-        {
-            throw new NotImplementedException();
+            return ValorNormal;
         }
     }
 }
