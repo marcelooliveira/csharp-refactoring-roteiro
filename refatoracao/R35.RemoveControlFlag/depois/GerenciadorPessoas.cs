@@ -29,7 +29,7 @@ namespace refatoracao.R35.RemoveControlFlag.depois
                 if (pessoasEspeciais.Contains(person))
                 {
                     EnviarAlerta();
-                    return true;
+                    return true; //early return
                 }
             }
             return false;
