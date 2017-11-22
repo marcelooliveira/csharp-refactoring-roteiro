@@ -29,7 +29,10 @@ namespace refatoracao.R33.ConsolidateConditionalExpression.depois
 
         public decimal ValorSeguroAReceber()
         {
-            if (NaoEhElegivelParaSeguro()) return 0;
+            if (NaoEhElegivelParaSeguro())
+            {
+                return 0; // early return
+            }
 
             decimal resultado = 0;
 
