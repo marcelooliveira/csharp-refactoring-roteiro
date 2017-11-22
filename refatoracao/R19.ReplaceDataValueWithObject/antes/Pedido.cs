@@ -11,6 +11,9 @@ namespace refatoracao.R19.ReplaceDataValueWithObject.antes
         void Teste()
         {
             var pedido = new Pedido("José da Silva");
+            pedido.AddItem("Alphakix", 10, 3);
+            pedido.AddItem("Stocklab", 15, 5);
+            pedido.AddItem("Statstrong", 6, 2);
         }
     }
 
@@ -19,7 +22,7 @@ namespace refatoracao.R19.ReplaceDataValueWithObject.antes
         private readonly string cliente;
         public string Cliente { get; }
 
-        private readonly IList<Item> itens;
+        private readonly IList<Item> itens = new List<Item>();
         public IReadOnlyCollection<Item> Itens => new ReadOnlyCollection<Item>(itens);
         
         public Pedido(string cliente)

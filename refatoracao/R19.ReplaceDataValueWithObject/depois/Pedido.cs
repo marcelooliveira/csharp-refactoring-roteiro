@@ -23,7 +23,7 @@ namespace refatoracao.R19.ReplaceDataValueWithObject.depois
         private readonly Cliente cliente;
         public Cliente Cliente { get; }
 
-        private readonly IList<Item> itens;
+        private readonly IList<Item> itens = new List<Item>();
         public IReadOnlyCollection<Item> Itens => new ReadOnlyCollection<Item>(itens);
 
         public Pedido(Cliente cliente)
