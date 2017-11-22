@@ -6,41 +6,49 @@ namespace refatoracao.R29.ReplaceTypeCodeWithSubclasses.depois
 {
     abstract class Funcionario
     {
-        public const int ENGENHEIRO = 0;
-        public const int VENDEDOR = 1;
-        public const int GERENTE = 2;
+        readonly string nome;
+        public string Nome => nome;
 
-        public abstract int Tipo { get; }
+        readonly decimal salario;
+        public decimal Salario => salario;
 
-        public static Funcionario Criar(int tipo)
+        public Funcionario(string nome, decimal salario)
         {
-            switch (tipo)
-            {
-                case ENGENHEIRO:
-                    return new Engenheiro();
-                case VENDEDOR:
-                    return new Vendedor();
-                case GERENTE:
-                    return new Gerente();
-                default:
-                    break;
-            }
-            throw new Exception("Tipo desconhecido");
+            this.nome = nome;
+            this.salario = salario;
         }
     }
-
+    
     class Engenheiro : Funcionario
     {
-        public override int Tipo => Funcionario.ENGENHEIRO;
+        public Engenheiro(string nome, decimal salario) 
+            : base(nome, salario) { }
     }
 
     class Vendedor : Funcionario
     {
-        public override int Tipo => Funcionario.VENDEDOR;
+        public Vendedor(string nome, decimal salario) 
+            : base(nome, salario) { }
     }
 
     class Gerente : Funcionario
     {
-        public override int Tipo => Funcionario.GERENTE;
+        public Gerente(string nome, decimal salario) 
+            : base(nome, salario) { }
+    }
+
+    class Exemplo
+    {
+        void Teste()
+        {
+            Funcionario engenheiro = new Engenheiro("José da Silva", 1000);
+            Funcionario vendedor = new Vendedor("Maria Bonita", 2000);
+            Funcionario gerente = new Gerente("João das Neves", 3000);
+
+            var valorFolhaDePagamento =
+                engenheiro.Salario
+                + vendedor.Salario
+                + gerente.Salario;
+        }
     }
 }

@@ -13,16 +13,25 @@ namespace refatoracao.R29.ReplaceTypeCodeWithSubclasses.antes
             Gerente = 2
         }
 
-        public TipoFuncionario Tipo { get; private set; }
+        readonly TipoFuncionario tipo;
+        public TipoFuncionario Tipo { get; }
 
-        private Funcionario(TipoFuncionario tipo)
+        readonly string nome;
+        public string Nome => nome;
+
+        readonly decimal salario;
+        public decimal Salario => salario;
+
+        private Funcionario(TipoFuncionario tipo, string nome, decimal salario)
         {
-            Tipo = tipo;
+            this.tipo = tipo;
+            this.nome = nome;
+            this.salario = salario;
         }
 
-        public static Funcionario Criar(TipoFuncionario tipo)
+        public static Funcionario Criar(TipoFuncionario tipo, string nome, decimal salario)
         {
-            return new Funcionario(tipo);
+            return new Funcionario(tipo, nome, salario);
         }
     }
 
@@ -30,9 +39,14 @@ namespace refatoracao.R29.ReplaceTypeCodeWithSubclasses.antes
     {
         void Teste()
         {
-            Funcionario engenheiro = Funcionario.Criar(Funcionario.TipoFuncionario.Engenheiro);
-            Funcionario vendedor = Funcionario.Criar(Funcionario.TipoFuncionario.Vendedor);
-            Funcionario gerente = Funcionario.Criar(Funcionario.TipoFuncionario.Gerente);
+            Funcionario engenheiro = Funcionario.Criar(Funcionario.TipoFuncionario.Engenheiro, "José da Silva", 1000);
+            Funcionario vendedor = Funcionario.Criar(Funcionario.TipoFuncionario.Vendedor, "Maria Bonita", 2000);
+            Funcionario gerente = Funcionario.Criar(Funcionario.TipoFuncionario.Gerente, "João das Neves", 3000);
+
+            var valorFolhaDePagamento = 
+                engenheiro.Salario 
+                + vendedor.Salario 
+                + gerente.Salario;
         }
     }
 }
