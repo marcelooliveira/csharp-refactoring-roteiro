@@ -9,29 +9,33 @@ namespace refatoracao.R32.DecomposeConditional.depois
         private decimal _taxaInverno;
         private decimal _taxaServicoInverno;
         private decimal _taxaVerao;
+
+        public HotelFazenda(decimal taxaInverno, decimal taxaServicoInverno, decimal taxaVerao)
+        {
+            _taxaInverno = taxaInverno;
+            _taxaServicoInverno = taxaServicoInverno;
+            _taxaVerao = taxaVerao;
+        }
+
         private DateTime INICIO_VERAO = new DateTime(2017, 12, 23);
         private DateTime FIM_VERAO = new DateTime(2018, 03, 21);
 
-        decimal GetValorTotal(DateTime data, int quantidade)
+        public decimal GetValorTotal(DateTime data, int dias)
         {
-            decimal total;
-
             if (NaoEhVerao(data))
-                total = TaxaInverno(quantidade);
-            else
-                total = TaxaVerao(quantidade);
+                return TaxaInverno(dias);
 
-            return total;
+            return TaxaVerao(dias); //early return
         }
 
-        private decimal TaxaVerao(int quantidade)
+        private decimal TaxaVerao(int dias)
         {
-            return quantidade * _taxaVerao;
+            return dias * _taxaVerao;
         }
 
-        private decimal TaxaInverno(int quantidade)
+        private decimal TaxaInverno(int dias)
         {
-            return quantidade * _taxaInverno + _taxaServicoInverno;
+            return dias * _taxaInverno + _taxaServicoInverno;
         }
 
         private bool NaoEhVerao(DateTime data)
@@ -50,6 +54,16 @@ namespace refatoracao.R32.DecomposeConditional.depois
         public static bool EhDepoisDe(this DateTime estaData, DateTime aquelaData)
         {
             return DateTime.Compare(aquelaData, estaData) > 0;
+        }
+    }
+
+    class Programa
+    {
+        void Teste()
+        {
+            var hotel = new HotelFazenda(500, 200, 800);
+            var valor5DiasNoVerao = hotel.GetValorTotal(new DateTime(2018, 1, 1), 5);
+            var valor7DiasAposVerao = hotel.GetValorTotal(new DateTime(2018, 4, 1), 7);
         }
     }
 }
