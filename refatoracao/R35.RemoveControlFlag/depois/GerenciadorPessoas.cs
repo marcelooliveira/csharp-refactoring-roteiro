@@ -4,43 +4,50 @@ using System.Text;
 
 namespace refatoracao.R35.RemoveControlFlag.depois
 {
-    class Solution
+    class GerenciadorPessoas
     {
-        public Solution()
+        public GerenciadorPessoas()
         {
-            IEnumerable<string> pessoas = new List<string>();
-            ChecarSeguranca(pessoas);
-        }
-
-        private void ChecarSeguranca(IEnumerable<string> pessoas)
-        {
-            string encontrouPessoa = string.Empty;
-            encontrouPessoa = EncontrarPessoa(pessoas);
-            var p = encontrouPessoa;
-        }
-
-        private static string EncontrarPessoa(IEnumerable<string> pessoas)
-        {
-            foreach (var pessoa in pessoas)
+            IList<string> pessoas = new List<string>
             {
-                if (pessoa.Equals("Diego"))
+                "Marcelo",
+                "Marcos",
+                "Diego",
+                "Caio",
+                "Marlon"
+            };
+
+
+            var encontrouPessoa = EncontrarPessoaEspecial(pessoas);
+        }
+
+        private bool EncontrarPessoaEspecial(IList<string> pessoas)
+        {
+            IList<string> pessoasEspeciais = GetPessoasEspeciais();
+            foreach (var person in pessoas)
+            {
+                if (pessoasEspeciais.Contains(person))
                 {
                     EnviarAlerta();
-                    return pessoa;
-                }
-                if (pessoa.Equals("João"))
-                {
-                    EnviarAlerta();
-                    return pessoa;
+                    return true;
                 }
             }
+            return false;
+        }
 
-            return string.Empty;
+        private static IList<string> GetPessoasEspeciais()
+        {
+            return new List<string>
+            {
+                "Diego",
+                "João"
+            };
         }
 
         private static void EnviarAlerta()
         {
-            var blabla = 0;
+            //código para enviar um alerta
         }
     }
+
 }

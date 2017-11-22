@@ -8,17 +8,19 @@ namespace refatoracao.R35.RemoveControlFlag.antes
     {
         public GerenciadorPessoas()
         {
-            IList<string> pessoas = new List<string>();
-            pessoas.Add("Marcelo");
-            pessoas.Add("Marcos");
-            pessoas.Add("Diego");
-            pessoas.Add("Caio");
-            pessoas.Add("Marlon");
+            IList<string> pessoas = new List<string>
+            {
+                "Marcelo",
+                "Marcos",
+                "Diego",
+                "Caio",
+                "Marlon"
+            };
 
             var encontrouPessoa = EncontrarPessoaEspecial(pessoas);
         }
 
-        private bool EncontrarPessoaEspecial(IEnumerable<string> pessoas)
+        private bool EncontrarPessoaEspecial(IList<string> pessoas)
         {
             bool encontrouPessoa = false;
             foreach (var person in pessoas)
