@@ -1,53 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace refatoracao.R24.ChangeUniToBi.depois
 {
-    class Pedido : IDisposable
+    class Program
     {
-        private Cliente cliente;
-        internal Cliente Cliente
+        void Main()
         {
-            get
-            {
-                return cliente;
-            }
+            var cliente = new Cliente();
+
+            Pedido pedido = cliente.AdicionaPedido();
+            cliente.RemovePedido(pedido);
         }
+    }
+
+    class Pedido
+    {
+        private readonly Cliente cliente;
+        internal Cliente Cliente => cliente;
 
         public Pedido(Cliente cliente)
         {
             this.cliente = cliente;
-            this.cliente.Adiciona(this);
         }
 
-        public void Dispose()
-        {
-            this.cliente = null;
-        }
+        //Código do pedido aqui...
     }
 
     class Cliente
     {
-        private HashSet<Pedido> pedidos = new HashSet<Pedido>();
-        public IEnumerable<Pedido> Pedidos
+        private IList<Pedido> pedidos = new List<Pedido>();
+        public IReadOnlyCollection<Pedido> Pedidos
         {
-            get { return pedidos; }
+            get { return new ReadOnlyCollection<Pedido>(pedidos); }
         }
 
-        internal HashSet<Pedido> PedidosDeAmigos
+        internal Pedido AdicionaPedido()
         {
-            get { return pedidos; }
-        }
-
-        public void Adiciona(Pedido pedido)
-        {
+            var pedido = new Pedido(this);
             pedidos.Add(pedido);
+            return pedido;
         }
 
-        public void Remove(Pedido pedido)
+        internal void RemovePedido(Pedido pedido)
         {
             pedidos.Remove(pedido);
         }
+
+        //Mais código do cliente aqui...
     }
 }
