@@ -19,7 +19,7 @@ namespace refatoracao.R38.IntroduceNullObject.antes
             pagamento = new Pagamento(new ValePresente(), 500, 1);
             pagamento.Pagar();
 
-            pagamento = new Pagamento(null, 200, 1);
+            pagamento = new Pagamento(null, 200, 1); //em dinheiro!
             pagamento.Pagar();
 
             Console.ReadKey();
