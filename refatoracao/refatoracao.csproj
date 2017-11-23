@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="R23.DuplicateObservedData\antes\FormCalculadoraAntes.cs" />
+    <Compile Remove="R23.DuplicateObservedData\depois\CalculadoraIMC.cs" />
+    <Compile Remove="R23.DuplicateObservedData\depois\FormCalculadoraDepois.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="R45.ReplaceParameterWithExplicitMethods\antes\" />
     <Folder Include="R45.ReplaceParameterWithExplicitMethods\depois\" />
     <Folder Include="R47.ReplaceParameterWMethodCall\antes\" />
@@ -22,6 +28,16 @@
     <Folder Include="R49.RemoveSettingMethod\depois\" />
     <Folder Include="R37.xxx\antes\" />
     <Folder Include="R37.xxx\depois\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="R23.DuplicateObservedData\antes\FormCalculadoraAntes.cs">
+      <SubType>Form</SubType>
+    </None>
+    <None Include="R23.DuplicateObservedData\depois\CalculadoraIMC.cs" />
+    <None Include="R23.DuplicateObservedData\depois\FormCalculadoraDepois.cs">
+      <SubType>Form</SubType>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
