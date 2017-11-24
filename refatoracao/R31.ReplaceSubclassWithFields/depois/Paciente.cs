@@ -4,6 +4,19 @@ using System.Text;
 
 namespace refatoracao.R31.ReplaceSubclassWithFields.depois
 {
+    class Programa
+    {
+        void Main()
+        {
+            var hospital = new Hospital();
+            var paciente1 = Paciente.CriarPacienteHomem();
+            var paciente2 = Paciente.CriarPacienteMulher();
+
+            hospital.Atender(paciente1);
+            hospital.Atender(paciente2);
+        }
+    }
+
     class Paciente
     {
         public char Sexo { get; private set; }
@@ -35,7 +48,7 @@ namespace refatoracao.R31.ReplaceSubclassWithFields.depois
             Atender(jose);
         }
 
-        void Atender(Paciente paciente)
+        public void Atender(Paciente paciente)
         {
             //codigo para atendimento hospitalar...
         }

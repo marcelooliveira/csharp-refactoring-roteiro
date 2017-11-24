@@ -4,6 +4,21 @@ using System.Text;
 
 namespace refatoracao.R30.ReplaceTypeCodeWStateStrategy.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            Funcionario engenheiro = Funcionario.Criar(Funcionario.ENGENHEIRO, 2000, 0, 0);
+            Funcionario vendedor = Funcionario.Criar(Funcionario.VENDEDOR, 2000, 1500, 0);
+            Funcionario gerente = Funcionario.Criar(Funcionario.GERENTE, 3000, 0, 1000);
+
+            var valorFolhaDePagamento =
+                engenheiro.Salario
+                + vendedor.Salario
+                + gerente.Salario;
+        }
+    }
+
     class Funcionario
     {
         public const int ENGENHEIRO = 0;
@@ -53,18 +68,4 @@ namespace refatoracao.R30.ReplaceTypeCodeWStateStrategy.antes
     }
 
 
-    class Exemplo
-    {
-        void Teste()
-        {
-            Funcionario engenheiro = Funcionario.Criar(Funcionario.ENGENHEIRO, 2000, 0, 0);
-            Funcionario vendedor = Funcionario.Criar(Funcionario.VENDEDOR, 2000, 1500, 0);
-            Funcionario gerente = Funcionario.Criar(Funcionario.GERENTE, 3000, 0, 1000);
-
-            var valorFolhaDePagamento =
-                engenheiro.Salario
-                + vendedor.Salario
-                + gerente.Salario;
-        }
-    }
 }

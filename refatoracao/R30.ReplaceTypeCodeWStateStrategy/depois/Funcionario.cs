@@ -4,6 +4,21 @@ using System.Text;
 
 namespace refatoracao.R30.ReplaceTypeCodeWStateStrategy.depois
 {
+    class Programa
+    {
+        void Main()
+        {
+            Funcionario engenheiro = new Funcionario(new Engenheiro(), 2000, 0, 0);
+            Funcionario vendedor = new Funcionario(new Vendedor(), 2000, 1500, 0);
+            Funcionario gerente = new Funcionario(new Gerente(), 3000, 0, 1000);
+
+            var valorFolhaDePagamento =
+                engenheiro.GetPagamento()
+                + vendedor.GetPagamento()
+                + gerente.GetPagamento();
+        }
+    }
+
     //Veja também: 
     //SOLID com Java: Orientação a Objetos com Java
     //https://www.alura.com.br/curso-online-orientacao-a-objetos-avancada-e-principios-solid
@@ -64,18 +79,4 @@ namespace refatoracao.R30.ReplaceTypeCodeWStateStrategy.depois
         }
     }
 
-    class Exemplo
-    {
-        void Teste()
-        {
-            Funcionario engenheiro = new Funcionario(new Engenheiro(), 2000, 0, 0);
-            Funcionario vendedor = new Funcionario(new Vendedor(), 2000, 1500, 0);
-            Funcionario gerente = new Funcionario(new Gerente(), 3000, 0, 1000);
-
-            var valorFolhaDePagamento =
-                engenheiro.GetPagamento()
-                + vendedor.GetPagamento()
-                + gerente.GetPagamento();
-        }
-    }
 }

@@ -4,6 +4,15 @@ using System.Text;
 
 namespace refatoracao.R34.ConsolidateDuplicateConditionalFragments.depois
 {
+    class Programa
+    {
+        void Main()
+        {
+            var produto = new Produto(100, false);
+            Console.WriteLine($"Preco final: {produto.PrecoFinal}");
+        }
+    }
+
     class Produto
     {
         private const decimal FATOR_DESCONTO_PROMOCIONAL = 0.95m;
@@ -11,7 +20,7 @@ namespace refatoracao.R34.ConsolidateDuplicateConditionalFragments.depois
         readonly decimal preco;
         public decimal Preco => preco;
 
-        readonly decimal precoFinal;
+        decimal precoFinal;
         public decimal PrecoFinal => precoFinal;
 
         readonly bool ehVendaPromocional;
@@ -22,16 +31,17 @@ namespace refatoracao.R34.ConsolidateDuplicateConditionalFragments.depois
             this.preco = preco;
             this.ehVendaPromocional = ehVendaPromocional;
 
-            if (ehVendaPromocional)
-            {
-                this.precoFinal = preco * FATOR_DESCONTO_PROMOCIONAL;
-            }
-            else
-            {
-                this.precoFinal = preco * FATOR_DESCONTO_NORMAL;
-            }
+            this.precoFinal = CalculaPrecoFinal();
             Catalogo.IncluirProduto(this);
             GerenciadorDeEmail.EnviarEmailDeNovoProduto(this);
+        }
+
+        private decimal CalculaPrecoFinal()
+        {
+            if (ehVendaPromocional)
+                return preco * FATOR_DESCONTO_PROMOCIONAL; //early return
+
+            return preco * FATOR_DESCONTO_NORMAL;
         }
     }
 

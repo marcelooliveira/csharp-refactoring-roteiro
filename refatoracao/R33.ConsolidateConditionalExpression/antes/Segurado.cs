@@ -4,6 +4,19 @@ using System.Text;
 
 namespace refatoracao.R33.ConsolidateConditionalExpression.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            var segurado = new Segurado();
+            segurado.CumprindoCarencia = true;
+            segurado.MensalidadesAtrasadas = 2;
+            segurado.MesesSemSinistro = 3;
+
+            Console.WriteLine($"Valor do seguro: {segurado.ValorSeguroAReceber()}");
+        }
+    }
+
     class Segurado
     {
         bool cumprindoCarencia;

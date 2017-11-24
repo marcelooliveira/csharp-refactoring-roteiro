@@ -4,6 +4,16 @@ using System.Text;
 
 namespace refatoracao.R32.DecomposeConditional.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            var hotel = new HotelFazenda(500, 200, 800);
+            var valor5DiasNoVerao = hotel.GetValorTotal(new DateTime(2018, 1, 1), 5);
+            var valor7DiasAposVerao = hotel.GetValorTotal(new DateTime(2018, 4, 1), 7);
+        }
+    }
+
     class HotelFazenda
     {
         private decimal _taxaInverno;
@@ -43,13 +53,4 @@ namespace refatoracao.R32.DecomposeConditional.antes
         }
     }
 
-    class Programa
-    {
-        void Teste()
-        {
-            var hotel = new HotelFazenda(500, 200, 800);
-            var valor5DiasNoVerao = hotel.GetValorTotal(new DateTime(2018, 1, 1), 5);
-            var valor7DiasAposVerao = hotel.GetValorTotal(new DateTime(2018, 4, 1), 7);
-        }
-    }
 }

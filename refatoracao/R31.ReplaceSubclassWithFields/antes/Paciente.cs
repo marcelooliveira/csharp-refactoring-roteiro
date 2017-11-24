@@ -4,6 +4,19 @@ using System.Text;
 
 namespace refatoracao.R31.ReplaceSubclassWithFields.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            var hospital = new Hospital();
+            var paciente1 = new Mulher();
+            var paciente2 = new Homem();
+
+            hospital.Atender(paciente1);
+            hospital.Atender(paciente2);
+        }
+    }
+
     abstract class Paciente
     {
         public abstract char GetSexo();
@@ -36,7 +49,7 @@ namespace refatoracao.R31.ReplaceSubclassWithFields.antes
             Atender(jose);
         }
 
-        void Atender(Paciente paciente)
+        public void Atender(Paciente paciente)
         {
             //codigo para atendimento hospitalar...
         }

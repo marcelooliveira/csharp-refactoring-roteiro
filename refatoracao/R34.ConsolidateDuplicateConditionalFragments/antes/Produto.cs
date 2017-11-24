@@ -4,12 +4,21 @@ using System.Text;
 
 namespace refatoracao.R34.ConsolidateDuplicateConditionalFragments.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            var produto = new Produto(100, false);
+            Console.WriteLine($"Preco final: {produto.PrecoFinal}");
+        }
+    }
+
     class Produto
     {
         readonly decimal preco;
         public decimal Preco => preco;
 
-        readonly decimal precoFinal;
+        decimal precoFinal;
         public decimal PrecoFinal => precoFinal;
 
         readonly bool ehVendaPromocional;
