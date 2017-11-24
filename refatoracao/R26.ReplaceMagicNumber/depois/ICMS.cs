@@ -4,19 +4,27 @@ using System.Text;
 
 namespace refatoracao.R26.ReplaceMagicNumber.depois
 {
+    class Programa
+    {
+        void Main()
+        {
+            var valorImposto = ICMS.CalcularValor(1000, "SP");
+        }
+    }
+
     class ICMS
     {
         private const decimal ICMS_SP_PARA_SP = 0.18m;
         private const decimal ICMS_PADRAO = 0.15m;
         private const string SAO_PAULO = "SP";
 
-        public static decimal CalcularValor(decimal aliquota, string uf)
+        public static decimal CalcularValor(decimal valorProdutos, string uf)
         {
             if (uf == SAO_PAULO)
             {
-                return aliquota * ICMS_SP_PARA_SP;
+                return valorProdutos * ICMS_SP_PARA_SP;
             }
-            return aliquota * ICMS_PADRAO;
+            return valorProdutos * ICMS_PADRAO;
         }
     }
 }

@@ -4,15 +4,23 @@ using System.Text;
 
 namespace refatoracao.R26.ReplaceMagicNumber.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            var valorImposto = ICMS.CalcularValor(1000, "SP");
+        }
+    }
+
     class ICMS
     {
-        public static decimal CalcularValor(decimal aliquota, string uf)
+        public static decimal CalcularValor(decimal valorProdutos, string uf)
         {
             if (uf == "SP")
             {
-                return aliquota * 0.18m;
+                return valorProdutos * 0.18m;
             }
-            return aliquota * 0.15m;
+            return valorProdutos * 0.15m;
         }
     }
 }
