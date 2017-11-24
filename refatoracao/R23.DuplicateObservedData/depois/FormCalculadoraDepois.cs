@@ -12,9 +12,13 @@ namespace DuplicateObservedData
 {
     public partial class FormCalculadoraDepois : Form, ICalculadoraObserver
     {
+        private readonly CalculadoraIMC calculadora;
+
         public FormCalculadoraDepois()
         {
             InitializeComponent();
+            calculadora = new CalculadoraIMC();
+            calculadora.Adiciona(this);
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
@@ -24,8 +28,6 @@ namespace DuplicateObservedData
 
             try
             {
-                var calculadora = new CalculadoraIMC();
-                calculadora.AdicionaObservador(this);
                 calculadora.Calcular(altura, peso);
             }
             catch (Exception exc)
