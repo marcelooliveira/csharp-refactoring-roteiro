@@ -5,6 +5,14 @@ using System.Text;
 
 namespace refatoracao.R21.ChangeReferenceToValue.antes
 {
+    class Programa
+    {
+        public CartaoDeCredito GetMasterCard()
+        {
+            return CartaoDeCredito.Create("MC");
+        }
+    }
+
     class CartaoDeCredito
     {
         private readonly string nome;
@@ -43,11 +51,4 @@ namespace refatoracao.R21.ChangeReferenceToValue.antes
         }
     }
 
-    class Exemplo
-    {
-        public CartaoDeCredito GetMasterCard()
-        {
-            return CartaoDeCredito.Create("MC");
-        }
-    }
 }

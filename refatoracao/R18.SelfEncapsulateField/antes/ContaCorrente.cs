@@ -4,6 +4,17 @@ using System.Text;
 
 namespace refatoracao.R18.SelfEncapsulateField.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            var conta = new ContaCorrente();
+            conta.Depositar(100);
+            conta.Sacar(75);
+            conta.saldo -= 35; //opa, acessou diretamente o saldo!!
+        }
+    }
+
     class ContaCorrente
     {
         public decimal saldo;

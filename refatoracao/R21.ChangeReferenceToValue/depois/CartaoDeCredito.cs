@@ -5,6 +5,14 @@ using System.Text;
 
 namespace refatoracao.R21.ChangeReferenceToValue.depois
 {
+    class Programa
+    {
+        public bool TesteMasterCard()
+        {
+            return new CartaoDeCredito("MC").Equals(new CartaoDeCredito("MC"));
+        }
+    }
+
     class CartaoDeCredito
     {
         private readonly string nome;
@@ -53,11 +61,4 @@ namespace refatoracao.R21.ChangeReferenceToValue.depois
         }
     }
 
-    class Exemplo
-    {
-        public bool TesteMasterCard()
-        {
-            return new CartaoDeCredito("MC").Equals(new CartaoDeCredito("MC"));
-        }
-    }
 }

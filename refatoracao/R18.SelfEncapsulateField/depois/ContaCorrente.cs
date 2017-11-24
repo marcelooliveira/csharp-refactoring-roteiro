@@ -4,6 +4,17 @@ using System.Text;
 
 namespace refatoracao.R18.SelfEncapsulateField.depois
 {
+    class Programa
+    {
+        void Main()
+        {
+            var conta = new ContaCorrente(100);
+            conta.Depositar(100);
+            conta.Sacar(75);
+            //conta.saldo -= 35; //não é mais permitido!!
+        }
+    }
+
     class ContaCorrente
     {
         private decimal saldo;

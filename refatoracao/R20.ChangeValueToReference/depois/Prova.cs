@@ -5,13 +5,25 @@ using System.Text;
 
 namespace refatoracao.R20.ChangeValueToReference.depois
 {
+    class Programa
+    {
+        void Main()
+        {
+            var prova = new Prova("João Snow");
+            Console.WriteLine($"Nome do aluno: {prova.Aluno.Nome}");
+
+            IList<Prova> provas = new List<Prova>();
+            provas.Add(prova);
+            Console.WriteLine($"Nº de provas do aluno: {Prova.NumeroDeProvasPara(provas, "João Snow")}");
+        }
+    }
+
     class Prova
     {
-        private Aluno _aluno;
-        public string NomeAluno
+        private readonly Aluno _aluno;
+        public Aluno Aluno
         {
-            get { return _aluno.Nome;}
-            set { _aluno = Aluno.GetAluno(value); }
+            get { return _aluno;}
         }
 
         public Prova(string nomeAluno)
@@ -19,9 +31,9 @@ namespace refatoracao.R20.ChangeValueToReference.depois
             _aluno = Aluno.GetAluno(nomeAluno);
         }
 
-        private static int NumeroDeProvasPara(IEnumerable<Prova> provas, string aluno)
+        public static int NumeroDeProvasPara(IEnumerable<Prova> provas, string aluno)
         {
-            return provas.Count(o => o.NomeAluno.Equals(aluno, StringComparison.CurrentCultureIgnoreCase));
+            return provas.Count(o => o.Aluno.Nome.Equals(aluno, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 
