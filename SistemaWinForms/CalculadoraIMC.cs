@@ -13,9 +13,14 @@ namespace DuplicateObservedData
     {
         private IList<ICalculadoraObserver> observadores = new List<ICalculadoraObserver>();
 
-        public void AdicionaObservador(ICalculadoraObserver observador)
+        public void Adiciona(ICalculadoraObserver observador)
         {
             observadores.Add(observador);
+        }
+
+        public void Remove(ICalculadoraObserver observador)
+        {
+            observadores.Remove(observador);
         }
 
         public void Calcular(double altura, double peso)
