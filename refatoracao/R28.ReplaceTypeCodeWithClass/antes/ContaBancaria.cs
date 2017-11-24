@@ -1,9 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace refatoracao.R28.ReplaceTypeCodeWithClass.antes
 {
+    class Programa
+    {
+        public void Main()
+        {
+            var minhaContaCorrente = new ContaBancaria(ContaBancaria.CONTA_CORRENTE, 100m);
+            var minhaPoupanca = new ContaBancaria(ContaBancaria.POUPANCA, 300m);
+            var meuInvestimento = new ContaBancaria(ContaBancaria.INVESTIMENTO, 1500m);
+
+            minhaContaCorrente.Depositar(100);
+            minhaContaCorrente.Sacar(75);
+
+            minhaPoupanca.Depositar(55);
+            minhaPoupanca.Sacar(16);
+
+            meuInvestimento.Depositar(40);
+            meuInvestimento.Sacar(30);
+        }
+    }
+
     class ContaBancaria
     {
         public static int CONTA_CORRENTE = 0;

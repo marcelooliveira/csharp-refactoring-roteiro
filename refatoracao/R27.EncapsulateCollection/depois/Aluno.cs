@@ -5,6 +5,17 @@ using System.Text;
 
 namespace refatoracao.R27.EncapsulateCollection.depois
 {
+    class Programa
+    {
+        void Testar()
+        {
+            Aluno aluno = new Aluno();
+            aluno.AddCurso(new Curso("JavaScript Básico"));
+            aluno.AddCurso(new Curso("C# Intermediário"));
+            aluno.AddCurso(new Curso("Java Avançado"));
+        }
+    }
+
     class Aluno
     {
         private readonly List<Curso> cursos;
@@ -46,17 +57,6 @@ namespace refatoracao.R27.EncapsulateCollection.depois
         public Curso(string nome)
         {
             this.nome = nome;
-        }
-    }
-
-    class Exemplo
-    {
-        void Testar()
-        {
-            Aluno aluno = new Aluno();
-            aluno.AddCurso(new Curso("JavaScript Básico"));
-            aluno.AddCurso(new Curso("C# Intermediário"));
-            aluno.AddCurso(new Curso("Java Avançado"));
         }
     }
 }

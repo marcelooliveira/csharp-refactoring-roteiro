@@ -4,6 +4,21 @@ using System.Text;
 
 namespace refatoracao.R29.ReplaceTypeCodeWithSubclasses.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            Funcionario engenheiro = Funcionario.Criar(Funcionario.TipoFuncionario.Engenheiro, "José da Silva", 1000);
+            Funcionario vendedor = Funcionario.Criar(Funcionario.TipoFuncionario.Vendedor, "Maria Bonita", 2000);
+            Funcionario gerente = Funcionario.Criar(Funcionario.TipoFuncionario.Gerente, "João das Neves", 3000);
+
+            var valorFolhaDePagamento = 
+                engenheiro.Salario 
+                + vendedor.Salario 
+                + gerente.Salario;
+        }
+    }
+
     class Funcionario
     {
         public enum TipoFuncionario
@@ -35,18 +50,4 @@ namespace refatoracao.R29.ReplaceTypeCodeWithSubclasses.antes
         }
     }
 
-    class Exemplo
-    {
-        void Teste()
-        {
-            Funcionario engenheiro = Funcionario.Criar(Funcionario.TipoFuncionario.Engenheiro, "José da Silva", 1000);
-            Funcionario vendedor = Funcionario.Criar(Funcionario.TipoFuncionario.Vendedor, "Maria Bonita", 2000);
-            Funcionario gerente = Funcionario.Criar(Funcionario.TipoFuncionario.Gerente, "João das Neves", 3000);
-
-            var valorFolhaDePagamento = 
-                engenheiro.Salario 
-                + vendedor.Salario 
-                + gerente.Salario;
-        }
-    }
 }

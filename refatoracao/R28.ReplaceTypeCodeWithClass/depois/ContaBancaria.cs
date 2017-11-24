@@ -4,13 +4,22 @@ using System.Text;
 
 namespace refatoracao.R28.ReplaceTypeCodeWithClass.depois
 {
-    class Teste
+    class Programa
     {
-        public Teste()
+        public void Main()
         {
             var minhaContaCorrente = new ContaBancaria(TipoConta.ContaCorrente(), 100m);
             var minhaPoupanca = new ContaBancaria(TipoConta.Poupanca(), 300m);
             var meuInvestimento = new ContaBancaria(TipoConta.Investimento(), 1500m);
+
+            minhaContaCorrente.Depositar(100);
+            minhaContaCorrente.Sacar(75);
+
+            minhaPoupanca.Depositar(55);
+            minhaPoupanca.Sacar(16);
+
+            meuInvestimento.Depositar(40);
+            meuInvestimento.Sacar(30);
         }
     }
 
