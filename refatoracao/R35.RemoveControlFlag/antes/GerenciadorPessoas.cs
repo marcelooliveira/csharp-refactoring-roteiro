@@ -4,6 +4,16 @@ using System.Text;
 
 namespace refatoracao.R35.RemoveControlFlag.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            var gerenciador =
+                new GerenciadorPessoas()
+                .EncontrarPessoaEspecial(new List<string> { "Diego", "Caio" });
+        }
+    }
+
     class GerenciadorPessoas
     {
         public GerenciadorPessoas()
@@ -20,7 +30,7 @@ namespace refatoracao.R35.RemoveControlFlag.antes
             var encontrouPessoa = EncontrarPessoaEspecial(pessoas);
         }
 
-        private bool EncontrarPessoaEspecial(IList<string> pessoas)
+        public bool EncontrarPessoaEspecial(IList<string> pessoas)
         {
             bool encontrouPessoa = false;
             foreach (var person in pessoas)

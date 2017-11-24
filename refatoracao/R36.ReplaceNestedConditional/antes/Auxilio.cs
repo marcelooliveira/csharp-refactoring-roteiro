@@ -4,6 +4,15 @@ using System.Text;
 
 namespace refatoracao.R36.ReplaceNestedConditional.antes
 {
+    class Programa
+    {
+        void Main()
+        {
+            var auxilio = new Auxilio(1000, 800, 700, 500, false, true, true);
+            Console.WriteLine($"Pagamento do auxílio: {auxilio.GetPagamento()}");
+        }
+    }
+
     class Auxilio
     {
         private readonly double valorNormal;

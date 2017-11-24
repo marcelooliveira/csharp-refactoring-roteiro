@@ -4,16 +4,16 @@ using System.Text;
 
 namespace refatoracao.R39.IntroduceAssertion.antes
 {
-    class Teste
+    class Programa
     {
-        public Teste()
+        void Main()
         {
             var contaCorrente = new ContaBancaria(TipoConta.ContaCorrente(), 100m);
             var poupanca = new ContaBancaria(TipoConta.Poupanca(), 300m);
             AplicarNaPoupanca(contaCorrente, poupanca, 50);
         }
 
-        public void AplicarNaPoupanca(ContaBancaria contaCorrente, ContaBancaria poupanca, decimal valor)
+        void AplicarNaPoupanca(ContaBancaria contaCorrente, ContaBancaria poupanca, decimal valor)
         {
             contaCorrente.Sacar(valor);
             poupanca.Depositar(valor);
