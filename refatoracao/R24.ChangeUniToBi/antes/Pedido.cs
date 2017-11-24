@@ -14,6 +14,15 @@ namespace refatoracao.R24.ChangeUniToBi.antes
 
             cliente.AdicionaPedido(pedido);
             cliente.RemovePedido(pedido);
+
+            //acessando pedidos a partir do cliente
+            foreach (var p in cliente.Pedidos)
+            {
+                Console.WriteLine($"Pedido: {pedido}");
+            }
+
+            //acessando cliente a partir do pedido (não é possível!)
+            //Console.WriteLine($"Cliente: {pedido.Cliente}");
         }
     }
 

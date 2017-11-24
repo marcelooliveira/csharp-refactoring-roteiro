@@ -1,51 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace refatoracao.R25.ChangeBiToUni.depois
 {
+    class Program
+    {
+        void Main()
+        {
+            var cliente = new Cliente();
+
+            Pedido pedido = cliente.AdicionaPedido();
+            cliente.RemovePedido(pedido);
+
+            //acessando pedidos a partir do cliente
+            foreach (var p in cliente.Pedidos)
+            {
+                Console.WriteLine($"Pedido: {pedido}");
+            }
+
+            //acessando cliente a partir do pedido
+            Console.WriteLine($"Cliente: {pedido.Cliente}");
+        }
+    }
+
     class Pedido
     {
-        private HashSet<Cliente> _clientes = new HashSet<Cliente>();
-        public IEnumerable<Cliente> Clientes
+        private Cliente cliente;
+        internal Cliente Cliente => cliente;
+
+        public Pedido(Cliente cliente)
         {
-            get { return _clientes; }
+            this.cliente = cliente;
         }
 
-        public void AddCliente(Cliente cliente)
+        public void RemoveCliente()
         {
-            cliente.PedidosDeAmigos.Add(this);
-            _clientes.Add(cliente);
+            cliente = null;
         }
 
-        public void RemoveCliente(Cliente cliente)
-        {
-            cliente.PedidosDeAmigos.Remove(this);
-            _clientes.Remove(cliente);
-        }
+        //Código do pedido aqui...
     }
 
     class Cliente
     {
-        private HashSet<Pedido> _pedidos = new HashSet<Pedido>();
-        public IEnumerable<Pedido> Pedidos
+        private IList<Pedido> pedidos = new List<Pedido>();
+        public IReadOnlyCollection<Pedido> Pedidos
         {
-            get { return _pedidos; }
+            get { return new ReadOnlyCollection<Pedido>(pedidos); }
         }
 
-        internal HashSet<Pedido> PedidosDeAmigos
+        internal Pedido AdicionaPedido()
         {
-            get { return _pedidos; }
+            var pedido = new Pedido(this);
+            pedidos.Add(pedido);
+            return pedido;
         }
 
-        public void AddPedido(Pedido pedido)
+        internal void RemovePedido(Pedido pedido)
         {
-            pedido.AddCliente(this);
+            pedido.RemoveCliente();
+            pedidos.Remove(pedido);
         }
 
-        public void RemovePedido(Pedido pedido)
-        {
-            pedido.RemoveCliente(this);
-        }
+        //Mais código do cliente aqui...
     }
 }

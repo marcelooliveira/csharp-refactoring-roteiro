@@ -13,17 +13,31 @@ namespace refatoracao.R24.ChangeUniToBi.depois
 
             Pedido pedido = cliente.AdicionaPedido();
             cliente.RemovePedido(pedido);
+
+            //acessando pedidos a partir do cliente
+            foreach (var p in cliente.Pedidos)
+            {
+                Console.WriteLine($"Pedido: {pedido}");
+            }
+
+            //acessando cliente a partir do pedido (agora é possível!)
+            Console.WriteLine($"Cliente: {pedido.Cliente}");
         }
     }
 
     class Pedido
     {
-        private readonly Cliente cliente;
+        private Cliente cliente;
         internal Cliente Cliente => cliente;
 
         public Pedido(Cliente cliente)
         {
             this.cliente = cliente;
+        }
+
+        public void RemoveCliente()
+        {
+            cliente = null;
         }
 
         //Código do pedido aqui...
@@ -46,6 +60,7 @@ namespace refatoracao.R24.ChangeUniToBi.depois
 
         internal void RemovePedido(Pedido pedido)
         {
+            pedido.RemoveCliente();
             pedidos.Remove(pedido);
         }
 
