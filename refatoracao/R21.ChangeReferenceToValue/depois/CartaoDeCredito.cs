@@ -7,58 +7,39 @@ namespace refatoracao.R21.ChangeReferenceToValue.depois
 {
     class Programa
     {
-        public bool TesteMasterCard()
+        public void Main()
         {
-            return new CartaoDeCredito("MC").Equals(new CartaoDeCredito("MC"));
+            Cliente joao = new Cliente("João Snow", new DateTime(1985, 1, 1));
         }
     }
 
-    class CartaoDeCredito
+    class Cliente
     {
         private readonly string nome;
-        private decimal taxa;
+        public string Nome { get => nome; }
 
-        public string Nome
-        {
-            get
-            {
-                return nome;
-            }
-        }
+        private readonly DateTime dataNascimento;
+        public DateTime DataNascimento { get => dataNascimento; }
 
-        public decimal Taxa
-        {
-            get { return taxa; }
-            set
-            {
-                taxa = value;
-            }
-        }
-
-        public CartaoDeCredito(string nome)
+        public Cliente(string nome, DateTime dataNascimento)
         {
             this.nome = nome;
-        }
-
-        public decimal ValorComTaxa(decimal valor)
-        {
-            return valor * (1.0M + taxa);
+            this.dataNascimento = dataNascimento;
         }
 
         public override bool Equals(object obj)
         {
-            var outro = obj as CartaoDeCredito;
+            Cliente outro = obj as Cliente;
             if (outro == null)
             {
-                return false;
+                return false; //early return
             }
-            return this.nome.Equals(outro.nome);
+            return base.Equals(outro);
         }
 
         public override int GetHashCode()
         {
-            return this.nome.GetHashCode();
+            return nome.GetHashCode();
         }
     }
-
 }

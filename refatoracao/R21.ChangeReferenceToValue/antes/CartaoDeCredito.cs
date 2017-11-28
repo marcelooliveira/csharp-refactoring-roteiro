@@ -7,48 +7,39 @@ namespace refatoracao.R21.ChangeReferenceToValue.antes
 {
     class Programa
     {
-        public CartaoDeCredito GetMasterCard()
+        public void Main()
         {
-            return CartaoDeCredito.Create("MC");
+            Cliente joao = Cliente.Get("João Snow");
+            joao.DataNascimento = new DateTime(1985, 1, 1);
         }
     }
 
-    class CartaoDeCredito
+    class Cliente
     {
         private readonly string nome;
-        private decimal taxa;
+        public string Nome { get => nome; }
 
-        public string Nome
-        {
-            get
-            {
-                return nome;
-            }
-        }
+        private DateTime dataNascimento;
+        public DateTime DataNascimento
+        { get => dataNascimento; set => dataNascimento = value; }
 
-        public decimal Taxa
-        {
-            get { return taxa; }
-            set
-            {
-                taxa = value;
-            }
-        }
-
-        private CartaoDeCredito(string nome)
+        private Cliente(string nome)
         {
             this.nome = nome;
         }
 
-        public static CartaoDeCredito Create(string nome)
-        {
-            return new CartaoDeCredito(nome);
-        }
+        private static IDictionary<string, Cliente> dicionario
+            = new Dictionary<string, Cliente>();
 
-        public decimal ValorComTaxa(decimal valor)
+        public static Cliente Get(string nome)
         {
-            return valor * (1.0M + Taxa);
+            Cliente valor = (Cliente)dicionario[nome];
+            if (valor == null)
+            {
+                valor = new Cliente(nome);
+                dicionario.Add(nome, valor);
+            }
+            return valor;
         }
     }
-
 }
