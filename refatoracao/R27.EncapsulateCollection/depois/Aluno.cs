@@ -20,12 +20,7 @@ namespace refatoracao.R27.EncapsulateCollection.depois
     {
         private readonly List<Curso> cursos;
         public IReadOnlyCollection<Curso> Cursos
-        {
-            get
-            {
-                return new ReadOnlyCollection<Curso>(cursos);
-            }
-        }
+        { get { return new ReadOnlyCollection<Curso>(cursos); } }
 
         public void AddCurso(Curso curso)
         {

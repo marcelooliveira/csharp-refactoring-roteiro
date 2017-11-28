@@ -75,6 +75,11 @@ namespace refatoracao.R28.ReplaceTypeCodeWithClass.depois
         public static TipoConta Poupanca() { return new TipoConta(POUPANCA); }
         public static TipoConta Investimento() { return new TipoConta(INVESTIMENTO); }
 
+        public TipoConta(int codigoTipo)
+        {
+            this.codigoTipo = codigoTipo;
+        }
+
         private readonly int codigoTipo;
         public int CodigoTipo
         {
@@ -84,9 +89,5 @@ namespace refatoracao.R28.ReplaceTypeCodeWithClass.depois
             }
         }
 
-        public TipoConta(int codigoTipo)
-        {
-            this.codigoTipo = codigoTipo;
-        }
     }
 }

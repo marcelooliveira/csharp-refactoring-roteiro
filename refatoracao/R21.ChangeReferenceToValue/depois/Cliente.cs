@@ -9,7 +9,8 @@ namespace refatoracao.R21.ChangeReferenceToValue.depois
     {
         public void Main()
         {
-            Cliente joao = new Cliente("João Snow", new DateTime(1985, 1, 1));
+            Cliente joao = new Cliente("João Snow", 
+                new DateTime(1985, 1, 1));
         }
     }
 

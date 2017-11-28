@@ -13,7 +13,8 @@ namespace refatoracao.R39.IntroduceAssertion.antes
             AplicarNaPoupanca(contaCorrente, poupanca, 50);
         }
 
-        void AplicarNaPoupanca(ContaBancaria contaCorrente, ContaBancaria poupanca, decimal valor)
+        void AplicarNaPoupanca(ContaBancaria contaCorrente,
+            ContaBancaria poupanca, decimal valor)
         {
             contaCorrente.Sacar(valor);
             poupanca.Depositar(valor);

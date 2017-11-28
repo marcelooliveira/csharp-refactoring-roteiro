@@ -15,7 +15,8 @@ namespace refatoracao.R22.ReplaceArrayWithObject.depois
                 while ((linha = streamReader.ReadLine()) != null)
                 {
                     string[] campos = linha.Split(',');
-                    var cliente = new Cliente(campos[0], campos[1], campos[2], campos[3]);
+                    var cliente = new Cliente(
+                        campos[0], campos[1], campos[2], campos[3]);
 
                     Console.WriteLine("Dados do Cliente");
                     Console.WriteLine("================");

@@ -32,7 +32,7 @@ namespace refatoracao.R20.ChangeValueToReference.depois
             new Funcionario("Daniele Targaryen").Save();
         }
 
-        public Funcionario(String nome)
+        private Funcionario(String nome)
         {
             this.nome = nome;
         }
@@ -64,7 +64,7 @@ namespace refatoracao.R20.ChangeValueToReference.depois
 
         public Projeto(String nomeGerente)
         {
-            this.gerente = new Funcionario(nomeGerente);
+            this.gerente = Funcionario.Get(nomeGerente);
         }
 
         public void SetGerente(string nomeFuncionario)

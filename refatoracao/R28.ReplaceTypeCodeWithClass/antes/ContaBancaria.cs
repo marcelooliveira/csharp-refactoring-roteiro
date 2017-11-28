@@ -26,8 +26,7 @@ namespace refatoracao.R28.ReplaceTypeCodeWithClass.antes
         public static int CONTA_CORRENTE = 0;
         public static int POUPANCA = 1;
         public static int INVESTIMENTO = 2;
-
-
+        
         private readonly int tipoConta;
         public int TipoConta
         {
