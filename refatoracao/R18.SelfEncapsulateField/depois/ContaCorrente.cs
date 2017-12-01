@@ -30,7 +30,7 @@ namespace refatoracao.R18.SelfEncapsulateField.depois
 
         public void Sacar(decimal valor)
         {
-            if (valor > Saldo)
+            if (valor > saldo)
             {
                 throw new ArgumentException("Saldo insuficiente");
             }
