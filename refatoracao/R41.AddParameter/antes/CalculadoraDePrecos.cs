@@ -8,13 +8,17 @@ namespace refatoracao.R41.AddParameter.antes
     {
         void Main()
         {
-            var descontoFinal =
+            var descontoCliente1 =
                 new CalculadoraDePrecos()
                 .GetDescontoFinal(23, 10, 3);
 
-            Console.WriteLine($"Desconto final: {descontoFinal}");
+            Console.WriteLine($"Desconto final: {descontoCliente1}");
 
-            //Mas e se o cliente for negativado???
+            var descontoCliente2 =
+                new CalculadoraDePrecos()
+                .GetDescontoFinal(30, 4, 5); //Mas este cliente é negativado!
+
+            Console.WriteLine($"Desconto final: {descontoCliente2}");
         }
     }
 

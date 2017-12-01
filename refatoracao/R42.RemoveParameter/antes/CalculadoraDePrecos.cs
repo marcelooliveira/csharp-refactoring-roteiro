@@ -2,23 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace refatoracao.R41.AddParameter.depois
+namespace refatoracao.R42.RemoveParameter.antes
 {
     class Program
     {
         void Main()
         {
-            var descontoCliente1 =
+            var descontoFinal =
                 new CalculadoraDePrecos()
-                .GetDescontoFinal(23, 10, 3);
+                .GetDescontoFinal(23, 10, 3, true);
 
-            Console.WriteLine($"Desconto final: {descontoCliente1}");
-
-            var descontoCliente2 =
-                new CalculadoraDePrecos()
-                .GetDescontoFinal(30, 4, 5, true);
-
-            Console.WriteLine($"Desconto final: {descontoCliente2}");
+            Console.WriteLine($"Desconto final: {descontoFinal}");
         }
     }
 
@@ -31,11 +25,6 @@ namespace refatoracao.R41.AddParameter.depois
         private const decimal INCREMENTO_DESCONTO_POR_QUANTIDADE = 15m;
         private const decimal INCREMENTO_DESCONTO_POR_TEMPO = 10m;
 
-        public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos)
-        {
-            return GetDescontoFinal(descontoInicial, quantidade, clienteHaQuantosAnos, false);
-        }
-
         public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos, bool clienteNegativado)
         {
             if (clienteNegativado)
@@ -47,10 +36,6 @@ namespace refatoracao.R41.AddParameter.depois
             if (descontoInicial > LIMITE_MAXIMO_DESCONTO_INICIAL)
             {
                 result = DESCONTO_MAXIMO;
-            }
-            if (quantidade > LIMITE_MINIMO_QUANTIDADE)
-            {
-                result += INCREMENTO_DESCONTO_POR_QUANTIDADE;
             }
             if (clienteHaQuantosAnos > LIMITE_MINIMO_ANOS_CLIENTE)
             {
