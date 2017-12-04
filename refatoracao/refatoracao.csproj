@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="R23.DuplicateObservedData\antes\FormCalculadoraAntes.cs" />
-    <Compile Remove="R23.DuplicateObservedData\depois\CalculadoraIMC.cs" />
-    <Compile Remove="R23.DuplicateObservedData\depois\FormCalculadoraDepois.cs" />
+    <Compile Remove="R27.DuplicateObservedData\antes\FormCalculadoraAntes.cs" />
+    <Compile Remove="R27.DuplicateObservedData\depois\CalculadoraIMC.cs" />
+    <Compile Remove="R27.DuplicateObservedData\depois\FormCalculadoraDepois.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,11 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="R23.DuplicateObservedData\antes\FormCalculadoraAntes.cs">
+    <None Include="R27.DuplicateObservedData\antes\FormCalculadoraAntes.cs">
       <SubType>Form</SubType>
     </None>
-    <None Include="R23.DuplicateObservedData\depois\CalculadoraIMC.cs" />
-    <None Include="R23.DuplicateObservedData\depois\FormCalculadoraDepois.cs">
+    <None Include="R27.DuplicateObservedData\depois\CalculadoraIMC.cs" />
+    <None Include="R27.DuplicateObservedData\depois\FormCalculadoraDepois.cs">
       <SubType>Form</SubType>
     </None>
   </ItemGroup>
