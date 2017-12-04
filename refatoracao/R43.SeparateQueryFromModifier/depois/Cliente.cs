@@ -40,6 +40,8 @@ namespace refatoracao.R43.SeparateQueryFromModifier.depois
 
     class Cliente
     {
+        private const int VALOR_NF_CLIENTE_PREMIUM = 10000;
+
         // ...
         public void VerificarNotasFiscais(IList<NotaFiscal> notasFiscais)
         {
@@ -60,7 +62,7 @@ namespace refatoracao.R43.SeparateQueryFromModifier.depois
         {
             foreach (var nf in notasFiscais)
             {
-                if (nf.Valor > 10000)
+                if (nf.Valor > VALOR_NF_CLIENTE_PREMIUM)
                 {
                     return nf;
                 }
