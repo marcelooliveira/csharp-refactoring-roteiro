@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace refatoracao.R21.SelfEncapsulateField.antes
+namespace refatoracao.R21.EncapsulateField.antes
 {
     class Programa
     {

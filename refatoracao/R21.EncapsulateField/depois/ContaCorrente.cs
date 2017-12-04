@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace refatoracao.R21.SelfEncapsulateField.depois
+namespace refatoracao.R21.EncapsulateField.depois
 {
     class Programa
     {
