@@ -16,7 +16,7 @@ namespace refatoracao.R41.AddParameter.depois
 
             var descontoCliente2 =
                 new CalculadoraDePrecos()
-                .GetDescontoFinal(30, 4, 5, true);
+                .GetDescontoFinal(30, 4, 5, true); //agora com parâmetro
 
             Console.WriteLine($"Desconto final: {descontoCliente2}");
         }
