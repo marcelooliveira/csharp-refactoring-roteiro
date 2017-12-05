@@ -9,14 +9,3 @@ C:\Users\marce\Documents\Visual Studio 2017\Projects\SistemaWPF\SistemaWinForms\
 C:\Users\marce\Documents\Visual Studio 2017\Projects\SistemaWPF\SistemaWinForms\obj\Debug\SistemaWinForms.exe
 C:\Users\marce\Documents\Visual Studio 2017\Projects\SistemaWPF\SistemaWinForms\obj\Debug\SistemaWinForms.pdb
 C:\Users\marce\Documents\Visual Studio 2017\Projects\SistemaWPF\SistemaWinForms\obj\Debug\SistemaWinForms.FormCalculadoraDepois.resources
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\bin\Debug\SistemaWinForms.exe.config
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\bin\Debug\SistemaWinForms.exe
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\bin\Debug\SistemaWinForms.pdb
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\obj\Debug\SistemaWinForms.csprojResolveAssemblyReference.cache
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\obj\Debug\DuplicateObservedData.FormCalculadoraDepois.resources
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\obj\Debug\DuplicateObservedData.FormCalculadoraAntes.resources
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\obj\Debug\SistemaWinForms.Properties.Resources.resources
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\obj\Debug\SistemaWinForms.csproj.GenerateResource.Cache
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\obj\Debug\SistemaWinForms.csproj.CoreCompileInputs.cache
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\obj\Debug\SistemaWinForms.exe
-C:\Users\marce\Documents\GitHub\csharp-refactoring-roteiro\SistemaWinForms\obj\Debug\SistemaWinForms.pdb
