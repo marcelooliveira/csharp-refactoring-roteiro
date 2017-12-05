@@ -6,24 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="R27.DuplicateObservedData\antes\FormCalculadoraAntes.cs" />
-    <Compile Remove="R27.DuplicateObservedData\depois\CalculadoraIMC.cs" />
-    <Compile Remove="R27.DuplicateObservedData\depois\FormCalculadoraDepois.cs" />
+    <Compile Remove="Parte2\Aula2\R27.DuplicateObservedData\antes\FormCalculadoraAntes.cs" />
+    <Compile Remove="Parte2\Aula2\R27.DuplicateObservedData\depois\CalculadoraIMC.cs" />
+    <Compile Remove="Parte2\Aula2\R27.DuplicateObservedData\depois\FormCalculadoraDepois.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="R45.ReplaceParameterWithExplicitMethods\antes\" />
-    <Folder Include="R45.ReplaceParameterWithExplicitMethods\depois\" />
-    <Folder Include="R47.ReplaceParameterWMethodCall\antes\" />
-    <Folder Include="R47.ReplaceParameterWMethodCall\depois\" />
-    <Folder Include="R52.ReplaceErrorCodeWithException\antes\" />
-    <Folder Include="R52.ReplaceErrorCodeWithException\depois\" />
-    <Folder Include="R53.ReplaceExceptionwithTest\antes\" />
-    <Folder Include="R53.ReplaceExceptionwithTest\depois\" />
-    <Folder Include="R59.ExtractSuperclass\antes\" />
-    <Folder Include="R59.ExtractSuperclass\depois\" />
-    <Folder Include="R51.ReplaceConstructorWithFactoryMethod\antes\" />
-    <Folder Include="R51.ReplaceConstructorWithFactoryMethod\depois\" />
     <Folder Include="R49.RemoveSettingMethod\antes\" />
     <Folder Include="R49.RemoveSettingMethod\depois\" />
     <Folder Include="R37.xxx\antes\" />
@@ -31,11 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="R27.DuplicateObservedData\antes\FormCalculadoraAntes.cs">
+    <None Include="Parte2\Aula2\R27.DuplicateObservedData\antes\FormCalculadoraAntes.cs">
       <SubType>Form</SubType>
     </None>
-    <None Include="R27.DuplicateObservedData\depois\CalculadoraIMC.cs" />
-    <None Include="R27.DuplicateObservedData\depois\FormCalculadoraDepois.cs">
+    <None Include="Parte2\Aula2\R27.DuplicateObservedData\depois\CalculadoraIMC.cs" />
+    <None Include="Parte2\Aula2\R27.DuplicateObservedData\depois\FormCalculadoraDepois.cs">
       <SubType>Form</SubType>
     </None>
   </ItemGroup>
