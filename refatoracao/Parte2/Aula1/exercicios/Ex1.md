@@ -1,98 +1,44 @@
-﻿Você está desenvolvendo uma aplicação para um curso de informática.
-
-Você implementa as classes Aluno e Curso. Um Aluno possui N cursos, e por isso
-a classe Aluno expõe uma coleção (List) de cursos:
+﻿Você desenvolveu, numa aplicação de compras online, uma classe para cálculo de impostos:
 
 ```
 class Programa
 {
-    void Testar()
+    void Main()
     {
-        Aluno aluno = new Aluno();
-        aluno.Cursos.Add(new Curso("JavaScript Básico"));
-        aluno.Cursos.Add(new Curso("C# Intermediário"));
-        aluno.Cursos.Add(new Curso("Java Avançado"));
+        var valorImposto = Imposto.CalcularValor(1000, "ISENTO");
     }
 }
 
-class Aluno
+class Imposto
 {
-    private readonly List<Curso> cursos;
-    internal List<Curso> Cursos { get => cursos; }
-
-    public Aluno()
+    public static decimal CalcularValor(decimal valorProdutos, string tipoCliente)
     {
-        cursos = new List<Curso>();
-    }
-}
-
-class Curso
-{
-    readonly string nome;
-    public string Nome
-    {
-        get
+        if (tipoCliente == "ISENTO")
         {
-            return nome;
+            return 0;
         }
-    }
-
-    public Curso(string nome)
-    {
-        this.nome = nome;
+        return valorProdutos * 0.15m;
     }
 }
 ```
 
-Mas note também que a classe Programa consegue manipular (adicionar e remover) diretamente os cursos do aluno.
-Você quer modificar o código para encapsular a coleção de cursos e fazer com que os método de adicionar e remover cursos sejam
-protegidos pela classe Aluno. Implemente os passos necessários para essa refatoração.
+Porém, depois de executar com sucesso, agora você percebe que é necessário refatorar essa classe.
+Que tipo de refatoração seria mais adequada no momento? Escolha a melhor resposta
 
-# resposta
+A. Substituir as expressões `0.15m` e `"ISENTO"` pelas constantes: `ALIQUOTA_IMPOSTO_PADRAO` e `TIPO_CLIENTE_ISENTO`, respectivamente.
 
-1. A classe Aluno expõe a coleção de cursos como uma coleção modificável:
+Isso mesmo! `0.15m` e `"ISENTO"` são **número mágico** e **string mágica**, respectivamente.
+Um número mágico é um valor numérico ou string literal encontrado no meio do código fonte, mas sem nenhum significado óbvio. Este "anti-pattern" torna o programa mais difícil de entender e de refatorar.
+Vários problemas podem surgir quando você altera este número mágico. O comando de Localizar e Substituir não funciona adequadamente: o mesmo número pode ser utilizado com propósitos diferentes em lugares diferentes do programa, o que significa que você tem que verificar cada linha de código que utiliza esse número.
 
-```
-internal List<Curso> Cursos { get => cursos; }
-```
+B. Substituir as expressões `0.15m` e `tipoCliente == "ISENTO"` por variáveis temporárias.
+Ops! Armazenar a expressão `tipoCliente == "ISENTO"` em variável não irá eliminar a string mágica `ISENTO`.
 
-2. Vamos substituir o tipo do retorno por uma coleção não modificável (somente-leitura). Usaremos IReadOnlyCollection
+C. Substituir as expressões `valorProdutos * 0.15m` e `"ISENTO"` por uma constante.
+Ops! Uma constante não pode armazenar expressão com variável, como em `valorProdutos`.
 
-```
-public IReadOnlyCollection<Curso> Cursos { get => cursos; } 
-```
+D. Substituir as expressões `valorProdutos * 0.15m` e `tipoCliente == "ISENTO"` por variáveis temporárias.
+Ops! Armazenar a expressão `valorProdutos * 0.15m` em variável não irá eliminar o número mágico `0.15m`.
 
-3. Agora é preciso substituir o objeto retornado por uma nova instância de ReadOnlyCollection
-```
-public IReadOnlyCollection<Curso> Cursos { get { return new ReadOnlyCollection<Curso>(cursos); } }
-```
-
-4. Como estamos retornando uma coleção somente-leitura, o código na classe Programa não pode mais adicionar/remover
-cursos diretamente. Precisamos então implementar essas funcionalidades dentro da classe Aluno:
-
-```
-public void AddCurso(Curso curso)
-{
-    cursos.Add(curso);
-}
-
-public void RemoveCurso(Curso curso)
-{
-    cursos.Remove(curso);
-}
-```
-
-5. Agora vamos modificar a classe Programa para consumir os métodos Adicionar e Remover:
-
-```
-class Programa
-{
-    void Testar()
-    {
-        Aluno aluno = new Aluno();
-        aluno.AddCurso(new Curso("JavaScript Básico"));
-        aluno.AddCurso(new Curso("C# Intermediário"));
-        aluno.AddCurso(new Curso("Java Avançado"));
-    }
-}
-```
+E. Substituir as expressões `0.15m`, `0` e `"ISENTO"` pelas constantes: `ALIQUOTA_IMPOSTO_PADRAO`, `IMPOSTO_ZERO` e `TIPO_CLIENTE_ISENTO`, respectivamente.
+Quase! Não é necessário uma constante para o valor `0`, pois seu significado é óbvio (imposto zero).
