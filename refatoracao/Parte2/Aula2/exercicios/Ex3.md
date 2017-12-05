@@ -3,8 +3,6 @@
 Você desenvolve as classes do modelo: Cliente e Pedido. Cada Cliente pode ter N pedidos.
 Cada Pedido tem somente 1 cliente associado.
 
-Ao testar suas classes, você percebe que 
-
 Observe o código abaixo:
 
 ```
