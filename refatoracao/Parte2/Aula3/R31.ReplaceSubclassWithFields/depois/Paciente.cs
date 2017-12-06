@@ -19,6 +19,9 @@ namespace refatoracao.R31.ReplaceSubclassWithFields.depois
 
     class Paciente
     {
+        private const char MASCULINO = 'M';
+        private const char FEMININO = 'F';
+
         public char Sexo { get; private set; }
 
         private Paciente(char sexo)
@@ -28,12 +31,12 @@ namespace refatoracao.R31.ReplaceSubclassWithFields.depois
 
         public static Paciente CriarPacienteHomem()
         {
-            return new Paciente('M');
+            return new Paciente(MASCULINO);
         }
 
         public static Paciente CriarPacienteMulher()
         {
-            return new Paciente('F');
+            return new Paciente(FEMININO);
         }
     }
 
