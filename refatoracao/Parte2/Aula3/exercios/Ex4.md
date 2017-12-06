@@ -136,7 +136,14 @@ public static Paciente CriarPacienteMulher()
 }
 ```
 
-7. Exclua as subclasses.
+7. Remova o modificador `abstract` da classe Paciente.
+
+```
+class Paciente
+```
+
+8. Exclua as subclasses.
+
 
 
 
