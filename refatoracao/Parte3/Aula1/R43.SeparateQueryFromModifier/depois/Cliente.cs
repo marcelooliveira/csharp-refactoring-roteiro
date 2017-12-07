@@ -45,11 +45,6 @@ namespace refatoracao.R43.SeparateQueryFromModifier.depois
         // ...
         public void VerificarNotasFiscais(IList<NotaFiscal> notasFiscais)
         {
-            GerarClientePremium(notasFiscais);
-        }
-
-        public void GerarClientePremium(IList<NotaFiscal> notasFiscais)
-        {
             NotaFiscal nf = ObterNFPremium(notasFiscais);
             if (nf != null)
             {
