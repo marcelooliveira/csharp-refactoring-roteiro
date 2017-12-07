@@ -68,7 +68,7 @@ Ops! Temos comentários nesse código, mas são para ilustrar nossa aula.
 Além disso, **Consolidar Expressão Condicional** não serve para remover comentários.
 
 C- Número Mágico
-Ops! Para resolver isso, teríamos que aplicar outra técnica: **Substituir Número Mágico por Constante**
+Ops! Para resolver o odor "Número Mágico", teríamos que aplicar outra técnica: **Substituir Número Mágico por Constante**
 
 D- Obsessão por Tipos Primitivos
 Ops! Não temos nesse trecho tipos primitivos que precisem ser substituídos por objetos,
