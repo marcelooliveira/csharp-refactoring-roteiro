@@ -12,7 +12,7 @@ namespace refatoracao.Parte3.Aula2.R45.ReplaceParameterWithExplicitMethods.depoi
             var funcionario2 = new Funcionario("Pedro Parques", 2000);
 
             funcionario1.DarAumentoFixo(3000);
-            funcionario2.DarAumentoPorcentual(1.05m);
+            funcionario2.DarAumentoPorcentual(10);
         }
     }
 
