@@ -35,7 +35,7 @@ namespace refatoracao.Parte3.Aula2.R45.ReplaceParameterWithExplicitMethods.depoi
 
         public void DarAumentoPorcentual(decimal aumento)
         {
-            salario *= aumento;
+            salario *= (1.0m + aumento / 100.0m);
         }
 
         public void DarAumentoFixo(decimal aumento)

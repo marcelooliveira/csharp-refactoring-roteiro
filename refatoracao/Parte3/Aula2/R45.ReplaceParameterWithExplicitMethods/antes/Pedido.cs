@@ -41,7 +41,7 @@ namespace refatoracao.Parte3.Aula2.R45.ReplaceParameterWithExplicitMethods.antes
                     salario += aumento;
                     break;
                 case TIPO_AUMENTO_PORCENTUAL:
-                    salario *= aumento;
+                    salario *= (1.0m + aumento / 100.0m);
                     break;
                 default:
                     throw new ArgumentException("Tipo de desconto inválido");
