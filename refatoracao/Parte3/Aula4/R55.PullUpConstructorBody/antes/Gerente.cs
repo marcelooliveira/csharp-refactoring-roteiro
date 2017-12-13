@@ -6,18 +6,18 @@ namespace refatoracao.R55.PullUpConstructorBody.antes
 {
     class Funcionario
     {
-        protected string _nome;
-        protected string _id;
+        protected string nome;
+        protected string id;
     }
 
     class Gerente : Funcionario
     {
-        private int _avaliacao;
+        private int avaliacao;
         public Gerente(string nome, string id, int avaliacao)
         {
-            _nome = nome;
-            _id = id;
-            _avaliacao = avaliacao;
+            base.nome = nome;
+            base.id = id;
+            this.avaliacao = avaliacao;
         }
     }
 

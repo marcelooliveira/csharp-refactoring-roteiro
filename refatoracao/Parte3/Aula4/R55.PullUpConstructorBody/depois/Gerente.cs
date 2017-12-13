@@ -6,22 +6,22 @@ namespace refatoracao.R55.PullUpConstructorBody.depois
 {
     class Funcionario
     {
-        protected string _nome;
-        protected string _id;
+        protected string nome;
+        protected string id;
 
         public Funcionario(string nome, string id)
         {
-            _nome = nome;
-            _id = id;
+            this.nome = nome;
+            this.id = id;
         }
     }
 
     class Gerente : Funcionario
     {
-        private int _avaliacao;
+        private int avaliacao;
         public Gerente(string nome, string id, int avaliacao) : base(nome, id)
         {
-            _avaliacao = avaliacao;
+            this.avaliacao = avaliacao;
         }
     }
 
