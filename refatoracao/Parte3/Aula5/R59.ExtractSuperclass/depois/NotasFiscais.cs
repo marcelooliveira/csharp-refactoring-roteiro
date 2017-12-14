@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace refatoracao.Parte3.Aula5.R59.ExtractSuperclass.depois
 {
-    class MainApp
+    class Programa
     {
-        static void Main()
+        void Teste()
         {
             var item1 = new Item(new Produto("Escova dental Dentinho Feliz", 15), 15, 3);
             var item2 = new Item(new Produto("Sabonete Flor da Manhã", 3), 3, 10);
