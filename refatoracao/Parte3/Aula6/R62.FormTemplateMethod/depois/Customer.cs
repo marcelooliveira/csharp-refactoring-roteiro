@@ -4,147 +4,147 @@ using System.Text;
 
 namespace refatoracao.R62.FormTemplateMethod.depois
 {
-    class Customer
+    class Cliente
     {
-        public Customer()
+        public Cliente()
         {
-            var statement = new Statement(this).GetStatement();
-            var htmlStatement = new HTMLStatement(this).GetStatement();
+            var resumo = new Resumo(this).GetResumo();
+            var resumoHTML = new ResumoHTML(this).GetResumo();
         }
 
-        private IList<Rental> rentals;
-        public IList<Rental> Rentals
+        private IList<Locacao> locacoes;
+        public IList<Locacao> Locacoes
         {
-            get { return rentals; }
-            set { rentals = value; }
+            get { return locacoes; }
+            set { locacoes = value; }
         }
 
-        private double totalCharge;
-        public double TotalCharge
+        private double valorTotal;
+        public double ValorTotal
         {
-            get { return totalCharge; }
-            set { totalCharge = value; }
+            get { return valorTotal; }
+            set { valorTotal = value; }
         }
 
-        private double totalFrequentRenderPoints;
-        public double TotalFrequentRenderPoints
+        private double pontosDeFidelidade;
+        public double PontosDeFidelidade
         {
-            get { return totalFrequentRenderPoints; }
-            set { totalFrequentRenderPoints = value; }
+            get { return pontosDeFidelidade; }
+            set { pontosDeFidelidade = value; }
         }
 
-        private string name;
-        public string Name
+        private string nome;
+        public string Nome
         {
-            get { return name; }
-            set { name = value; }
+            get { return nome; }
+            set { nome = value; }
         }
     }
 
-    class Rental
+    class Locacao
     {
-        private Movie movie;
+        private Filme filme;
 
-        public Movie Movie
+        public Filme Filme
         {
-            get { return movie; }
-            set { movie = value; }
+            get { return filme; }
+            set { filme = value; }
         }
     }
 
-    class Movie
+    class Filme
     {
-        private string title;
+        private string titulo;
 
-        public string Title
+        public string Titulo
         {
-            get { return title; }
-            set { title = value; }
+            get { return titulo; }
+            set { titulo = value; }
         }
     }
 
-    abstract class BaseStatement
+    abstract class BaseResumo
     {
-        protected readonly Customer customer;
+        protected readonly Cliente cliente;
 
-        public BaseStatement(Customer customer)
+        public BaseResumo(Cliente cliente)
         {
-            this.customer = customer;
+            this.cliente = cliente;
         }
 
-        public string GetStatement()
+        public string GetResumo()
         {
             var result = new StringBuilder();
-            result.AppendLine(GetTitle());
-            foreach (var rental in customer.Rentals)
+            result.AppendLine(GetTitulo());
+            foreach (var locacao in cliente.Locacoes)
             {
-                result.AppendLine(GetRentalDetail(rental));
+                result.AppendLine(GetDetalheLocacao(locacao));
             }
-            result.AppendLine(GetAmountOwedText());
-            result.AppendLine(GetAmountEarnedText());
+            result.AppendLine(GetTextoValorDevido());
+            result.AppendLine(GetTextoPontosDeFidelidade());
             return result.ToString();
         }
 
-        protected abstract string GetAmountEarnedText();
+        protected abstract string GetTextoPontosDeFidelidade();
 
-        protected abstract string GetAmountOwedText();
+        protected abstract string GetTextoValorDevido();
 
-        protected abstract string GetRentalDetail(Rental rental);
+        protected abstract string GetDetalheLocacao(Locacao locacao);
 
-        protected abstract string GetTitle();
+        protected abstract string GetTitulo();
     }
 
-    class Statement : BaseStatement
+    class Resumo : BaseResumo
     {
-        public Statement(Customer customer) : base(customer)
+        public Resumo(Cliente cliente) : base(cliente)
         {
         }
 
-        protected override string GetAmountEarnedText()
+        protected override string GetTextoPontosDeFidelidade()
         {
-            return "You earned " + customer.TotalFrequentRenderPoints.ToString();
+            return $"Você ganhou: { cliente.PontosDeFidelidade.ToString() } pontos";
         }
 
-        protected override string GetAmountOwedText()
+        protected override string GetTextoValorDevido()
         {
-            return "Amount owed is " + customer.TotalCharge.ToString();
+            return "Total devido: " + cliente.ValorTotal.ToString();
         }
 
-        protected override string GetRentalDetail(Rental rental)
+        protected override string GetDetalheLocacao(Locacao locacao)
         {
-            return "\t" + rental.Movie.Title;
+            return "\t" + locacao.Filme.Titulo;
         }
 
-        protected override string GetTitle()
+        protected override string GetTitulo()
         {
-            return "Rental Record for " + customer.Name;
+            return "Resumo de locações de " + cliente.Nome;
         }
     }
 
-    class HTMLStatement : BaseStatement
+    class ResumoHTML : BaseResumo
     {
-        public HTMLStatement(Customer customer) : base(customer)
+        public ResumoHTML(Cliente cliente) : base(cliente)
         {
         }
 
-        protected override string GetAmountEarnedText()
+        protected override string GetTextoPontosDeFidelidade()
         {
-            return "You earned <em>" + customer.TotalFrequentRenderPoints.ToString() + "</em> frequent renter points.";
+            return $"Você ganhou <em>{cliente.PontosDeFidelidade.ToString()}</em> pontos.";
         }
 
-        protected override string GetAmountOwedText()
+        protected override string GetTextoValorDevido()
         {
-            return "<p> You owe <em>" + customer.TotalCharge.ToString() + "</em></p>";
+            return "<p>Total devido: <em>" + cliente.ValorTotal.ToString() + "</em></p>";
         }
 
-        protected override string GetRentalDetail(Rental rental)
+        protected override string GetDetalheLocacao(Locacao locacao)
         {
-            return rental.Movie.Title + "<br/>";
+            return locacao.Filme.Titulo + "<br/>";
         }
 
-        protected override string GetTitle()
+        protected override string GetTitulo()
         {
-            return "<h1>Rentals for <em>" + customer.Name + "</em></h1>";
+            return "<h1>Locações de <em>" + cliente.Nome + "</em></h1>";
         }
     }
 }

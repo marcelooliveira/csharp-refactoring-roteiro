@@ -4,88 +4,88 @@ using System.Text;
 
 namespace refatoracao.R62.FormTemplateMethod.antes
 {
-    class Customer
+    class Cliente
     {
-        public Customer()
+        public Cliente()
         {
-            var statement = GetStatement();
-            var htmlStatement = GetHTMLStatement();
+            var resumo = GetResumo();
+            var resumoHTML = GetResumoHTML();
         }
 
-        public string GetStatement()
+        public string GetResumo()
         {
-            var result = new StringBuilder();
-            result.AppendLine("Rental Record for " + Name);
-            foreach (var rental in Rentals)
+            var resultado = new StringBuilder();
+            resultado.AppendLine("Resumo de locações de " + Nome);
+            foreach (var locacao in Locacoes)
             {
-                result.AppendLine("\t" + rental.Movie.Title);
+                resultado.AppendLine("\t" + locacao.Filme.Titulo);
             }
-            result.AppendLine("Amount owed is " + TotalCharge.ToString());
-            result.AppendLine("You earned " + TotalFrequentRenderPoints.ToString());
-            return result.ToString();
+            resultado.AppendLine("Total devido: " + ValorTotal.ToString());
+            resultado.AppendLine($"Você ganhou: {PontosDeFidelidade.ToString()} pontos");
+            return resultado.ToString();
         }
 
-        public string GetHTMLStatement()
+        public string GetResumoHTML()
         {
-            var result = new StringBuilder();
-            result.AppendLine("<h1>Rentals for <em>" + Name + "</em></h1>");
-            foreach (var rental in Rentals)
+            var resultado = new StringBuilder();
+            resultado.AppendLine("<h1>Locações de <em>" + Nome + "</em></h1>");
+            foreach (var locacao in Locacoes)
             {
-                result.AppendLine(rental.Movie.Title + "<br/>");
+                resultado.AppendLine(locacao.Filme.Titulo + "<br/>");
             }
-            result.AppendLine("<p> You owe <em>" + TotalCharge.ToString() + "</em></p>");
-            result.AppendLine("You earned " + TotalFrequentRenderPoints.ToString() + "</em> frequent renter points.");
-            return result.ToString();
+            resultado.AppendLine("<p> Você deve: <em>R$ " + ValorTotal.ToString() + "</em></p>");
+            resultado.AppendLine("Você ganhou: " + PontosDeFidelidade.ToString() + "</em> pontos.");
+            return resultado.ToString();
         }
 
-        private IList<Rental> rental;
-        public IList<Rental> Rentals
+        private IList<Locacao> locacoes;
+        public IList<Locacao> Locacoes
         {
-            get { return rental; }
-            set { rental = value; }
+            get { return locacoes; }
+            set { locacoes = value; }
         }
 
-        private double totalCharge;
-        public double TotalCharge
+        private double valorTotal;
+        public double ValorTotal
         {
-            get { return totalCharge; }
-            set { totalCharge = value; }
+            get { return valorTotal; }
+            set { valorTotal = value; }
         }
 
-        private double totalFrequentRenderPoints;
-        public double TotalFrequentRenderPoints
+        private double pontosDeFidelidade;
+        public double PontosDeFidelidade
         {
-            get { return totalFrequentRenderPoints; }
-            set { totalFrequentRenderPoints = value; }
+            get { return pontosDeFidelidade; }
+            set { pontosDeFidelidade = value; }
         }
 
-        private string name;
-        public string Name
+        private string nome;
+        public string Nome
         {
-            get { return name; }
-            set { name = value; }
+            get { return nome; }
+            set { nome = value; }
         }
     }
 
-    class Rental
+    class Locacao
     {
-        private Movie movie;
+        private Filme filme;
 
-        public Movie Movie
+        public Filme Filme
         {
-            get { return movie; }
-            set { movie = value; }
+            get { return filme; }
+            set { filme = value; }
         }
     }
 
-    class Movie
+    class Filme
     {
-        private string title;
+        private string titulo;
 
-        public string Title
+        public string Titulo
         {
-            get { return title; }
-            set { title = value; }
+            get { return titulo; }
+            set { titulo = value; }
         }
     }
 }
