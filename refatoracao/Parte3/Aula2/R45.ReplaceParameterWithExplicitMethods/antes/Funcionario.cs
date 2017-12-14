@@ -44,7 +44,7 @@ namespace refatoracao.Parte3.Aula2.R45.ReplaceParameterWithExplicitMethods.antes
                     salario *= (1.0m + aumento / 100.0m);
                     break;
                 default:
-                    throw new ArgumentException("Tipo de desconto inválido");
+                    throw new ArgumentException("Tipo de aumento inválido");
             }
         }
     }

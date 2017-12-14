@@ -67,7 +67,7 @@ Ops! E se houver a necessidade de novos tipos de aumento, de 2% e 7%, por exempl
 Continuaremos com um problema de termos métodos diferentes para cada
 um dos possíveis valores de aumento. Isso cria duplicação desnecessária em nosso
 código. **Além disso, dois aumentos consecutivos de 5% não são o mesmo que
-um aumento único de 10% !**
+um aumento de 10%, mas sim de 10,25%! !**
 
 C-
 Substituiria os *números mágicos* `1.05m` e `1.10m` por constantes:
@@ -114,5 +114,5 @@ public void DarAumentoDe5PorCento()
 ```
 
 Ops! O cálculo está errado. **Dois aumentos consecutivos de 5% não são o mesmo que
-um aumento único de 10% !**
+um aumento de 10%, mas sim de 10,25%!**
 
