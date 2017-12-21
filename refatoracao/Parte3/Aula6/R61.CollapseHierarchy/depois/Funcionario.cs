@@ -4,6 +4,8 @@ using System.Text;
 
 namespace refatoracao.R61.CollapseHierarchy.depois
 {
+    //Como não aprender orientação a objetos: Herança
+    //http://blog.caelum.com.br/como-nao-aprender-orientacao-a-objetos-heranca/
     class Programa
     {
         void Main()

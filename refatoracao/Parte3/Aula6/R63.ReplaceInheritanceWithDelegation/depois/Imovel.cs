@@ -4,6 +4,9 @@ using System.Text;
 
 namespace refatoracao.Parte3.Aula6.R63.ReplaceInheritanceWithDelegation.depois
 {
+    //Para saber mais: Composition over inheritance
+    //https://en.wikipedia.org/wiki/Composition_over_inheritance
+
     class Programa
     {
         void Teste()
