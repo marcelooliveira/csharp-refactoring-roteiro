@@ -14,12 +14,13 @@ namespace refatoracao.R54.PullUpMethod.antes
 
             Console.WriteLine("Clientes");
             Console.WriteLine("========");
-            foreach (var cliente in clientes)
-            {
-                Console.WriteLine($"{cliente.Nome}");
-                Console.WriteLine($"{cliente.GetEndereco()}");
-                Console.WriteLine("========");
-            }
+
+            Console.WriteLine($"{cliente1.Nome}");
+            Console.WriteLine($"{cliente1.GetEndereco()}");
+            Console.WriteLine("========");
+
+            Console.WriteLine($"{cliente2.Nome}");
+            Console.WriteLine($"{cliente2.GetEndereco()}");
         }
     }
 
