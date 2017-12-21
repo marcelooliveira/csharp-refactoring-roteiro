@@ -8,70 +8,64 @@ namespace refatoracao.R54.PullUpMethod.depois
     {
         void Main()
         {
-            var fabrica = new Fabrica();
-            fabrica.Fabricar();
+            var cliente1 = new PessoaJuridica("Alura Cursos Online S/A", "Rua XPTO", "123", "12345678/0001-22");
+            var cliente2 = new PessoaFisica("João Snow", "Rua das Flores", "987", "123456789-12");
+            var clientes = new List<Cliente> { cliente1, cliente2 };
+
+            Console.WriteLine("Clientes");
+            Console.WriteLine("========");
+            foreach (var cliente in clientes)
+            {
+                Console.WriteLine($"{cliente.Nome}");
+                Console.WriteLine($"{cliente.GetEndereco()}");
+                Console.WriteLine("========");
+            }
         }
     }
 
-    abstract class Microondas
+    abstract class Cliente
     {
-        protected double altura;
-        protected double largura;
-        protected double profundidade;
+        protected readonly string nome;
+        public string Nome => nome;
 
-        public Microondas(double altura, double largura, double profundidade)
+        protected readonly string logradouro;
+        protected readonly string numero;
+
+        public Cliente(string nome, string logradouro, string numero)
         {
-            this.altura = altura;
-            this.largura = largura;
-            this.profundidade = profundidade;
+            this.nome = nome;
+            this.logradouro = logradouro;
+            this.numero = numero;
         }
 
-        public abstract int GetVoltagem();
-
-        public double GetVolume()
+        public string GetEndereco()
         {
-            return altura * largura * profundidade;
+            return $"{logradouro} {numero}";
         }
     }
 
-    class Microondas110 : Microondas
+    class PessoaFisica : Cliente
     {
-        public Microondas110(double altura, double largura, double profundidade) : base(altura, largura, profundidade)
-        {
-        }
+        private readonly string cpf;
+        public string Cpf => cpf;
 
-        public override int GetVoltagem()
+        public PessoaFisica(string nome, string logradouro, string numero, string cpf)
+            : base(nome, logradouro, numero)
         {
-            return 110;
+            this.cpf = cpf;
         }
     }
 
-    class Microondas220 : Microondas
+    class PessoaJuridica : Cliente
     {
-        public Microondas220(double altura, double largura, double profundidade) : base(altura, largura, profundidade)
-        {
-        }
+        private readonly string cnpj;
+        public string Cnpj => cnpj;
 
-        public override int GetVoltagem()
+        public PessoaJuridica(string nome, string logradouro, string numero, string cnpj)
+            : base(nome, logradouro, numero)
         {
-            return 220;
-        }
-    }
-
-    class Fabrica
-    {
-        public void Fabricar()
-        {
-            var aparelho1 = new Microondas220(28.9, 43.1, 34.1);
-            var aparelho2 = new Microondas110(28.9, 43.1, 34.1);
-
-            Fabricar(aparelho1);
-            Fabricar(aparelho2);
-        }
-
-        public void Fabricar(Microondas microondas)
-        {
-            //código para fabricar equipamento...
+            this.cnpj = cnpj;
         }
     }
+
 }
