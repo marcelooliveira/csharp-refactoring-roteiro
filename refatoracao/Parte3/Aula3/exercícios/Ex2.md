@@ -65,6 +65,18 @@ um *code smell* ("odor no código").
 Que tipo de refatoração você aplicaria no código acima? Escolha a melhor opção.
 
 A- Substituir Construtor por Método Factory
+Isso mesmo! Quando substituimos construtor por Método Factory, podemos ter
+um método factory para cada tipo diferente de funcionário. Isso permite que
+cada método tenha o comportamento necessário para construir uma instância
+diferente, eliminando assim o odor no código chamado **Comando Switch**.
+
 B- Extrair Método (movendo o trecho com o `switch` para outro método)
+Ops! Essa refatoração não altera o problema de termos ainda o odor no código chamado **Comando Switch**.
+
 C- Introduzir Objeto-Parâmetro para o construtor da classe
+Ops! A técnica **Introduzir Objeto-Parâmetro** é importante e resolve o problema da lista longa de parâmetros,
+porém esse não é o problema mais crítico do código acima.
+
 D- Separar Consulta do Modificador
+Ops! O código acima é de um construtor de classe e não de um método, 
+logo a técnica **Separar Consulta do Modificador** não se aplica aqui.

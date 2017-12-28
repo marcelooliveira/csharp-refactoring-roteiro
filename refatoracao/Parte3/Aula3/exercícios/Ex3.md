@@ -23,8 +23,15 @@ do código acima aplicando uma técnica de refatoração.
 Que técnica de refatoração você aplicaria? Escolha a melhor opção.
 
 A- Substituir Código de Erro por Exceção
+Isso mesmo! Podemos evitar a criação de códigos de erro especiais (0 e 1)
+lançando uma exceção quando houver uma violação da regra que diz que o valor não
+pode ser maior que o saldo.
 B- Substituir Exceção por Código de Erro
+Ops! O trecho acima já está usando Código de Erro.
 C- Remover Números Mágicos
+Quase! Números mágicos são um problema, porém não são o principal
+problema do trecho acima. Se lançarmos uma exceção quando a regra for
+violada, nem precisaremos mais desses códigos de erro.
 D- Substituir Exceção por Teste
-
+Ops! O trecho acima não está está lançando exceção nenhuma.
 
