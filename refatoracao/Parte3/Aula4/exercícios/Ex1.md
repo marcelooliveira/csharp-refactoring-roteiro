@@ -1,53 +1,16 @@
-﻿PULLUPMETHOD
+﻿Em que situação você utilizaria a técnica de refatoração Subir Método (Pull Up Method)?
 
-```
-abstract class Cliente
-{
-    private readonly string nome;
-    public string Nome => nome;
+A- Quando duas ou mais subclasses possuem um método que realiza um trabalho similar.
+Isso mesmo! Se duas subclasses possuem um método idêntico ou similar, podemos mover esse método para a superclasse,
+e assim eliminar os métodos das subclasses.
 
-    protected readonly string logradouro;
-    protected readonly string numero;
+B- Quando um método só existe em uma das subclasses.
+Ops! Se um método só existe em uma das subclasses, não podemos movê-lo para a superclasse, porque isso
+forçaria uma herança desnecessária desse método às outras subclasses.
 
-    public Cliente(string nome, string logradouro, string numero)
-    {
-        this.nome = nome;
-        this.logradouro = logradouro;
-        this.numero = numero;
-    }
-}
+C- Quando a superclasse possui um método abstrato que é implementado pelas subclasses.
+Ops! Nesse caso, o método abstrato na superclasse indica que existe esse método é implementado
+nas subclasses com código e comportamento diferentes, por isso não pode ser movido para a superclasse.
 
-class PessoaFisica : Cliente
-{
-    private readonly string cpf;
-    public string Cpf => cpf;
-
-    public PessoaFisica(string nome, string logradouro, string numero, string cpf) 
-        : base(nome, logradouro, numero)
-    {
-        this.cpf = cpf;
-    }
-
-    public string GetEndereco()
-    {
-        return $"{logradouro} {numero}";
-    }
-}
-
-class PessoaJuridica : Cliente
-{
-    private readonly string cnpj;
-    public string Cnpj => cnpj;
-
-    public PessoaJuridica(string nome, string logradouro, string numero, string cnpj) 
-        : base(nome, logradouro, numero)
-    {
-        this.cnpj = cnpj;
-    }
-
-    public string GetEndereco()
-    {
-        return $"{logradouro} {numero}";
-    }
-}
-```
+D- Quando a superclasse possui um método que é utilizado por apenas uma ou algumas das subclasses.
+Ops! Nesse caso a refatoração que deve ser aplicada é a inversa: Descer Método.
