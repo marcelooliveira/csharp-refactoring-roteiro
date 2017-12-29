@@ -1,4 +1,19 @@
-﻿PUSHDOWNMETHOD
+﻿Você está revisando o código de um programa para um sistema de folha de pagamento.
+
+Esse programa envolve uma hierarquia de classes:
+
+- `Funcionario`
+  - `Engenheiro`
+  - `Vendedor`
+  - `Gerente`
+
+Algumas regras de negócio se aplicam a essas classes:
+
+
+1. Todo funcionário recebe salário
+2. Somente vendedor recebe comissão
+3. Somente gerente recebe bônus
+
 
 ```
 class Programa
@@ -116,3 +131,25 @@ class Gerente : Funcionario
     }
 }
 ```
+
+Porém, ao revisar o código acima, você percebe que a superclasse funcionário possui
+tanto o método `DefinirComissao` quanto o `DefinirBonus`. Por esse motivo, você logo identifica
+que o código precisa ser refatorado. 
+
+Que técnica de refatoração você propõe? Escolha a melhor alternativa.
+
+A- Descer Método
+Isso mesmo! A superclasse contém dois métodos que são utilizados apenas por algumas das subclasses. Precisamos mover o método `DefinirComissao` da superclasse para a subclasse `Vendedor`,
+e mover o método `DefinirBonus` da superclasse para a subclasse `Gerente`.
+
+B- Extrair classe
+Ops! Em vez de extrair uma classe a partir da classe `Funcionario`, é melhor 
+mover os métodos para as subclasses que realmente os utilizam.
+
+C- Extrair Método
+Ops! Extrair Método não irá resolver o problema maior, que é o fato
+de a superclasse conter dois métodos que são utilizados apenas por algumas das subclasses.
+
+D- Substituir Método por Objeto-Método
+Ops! A técnica **Substituir Método por Objeto-Método** é usada quando temos
+um método que é longo, porém suas variáveis são muito interligadas, o que dificulta uma extração de um método.
