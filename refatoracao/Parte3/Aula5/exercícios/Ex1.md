@@ -1,118 +1,22 @@
-﻿EXTRACTSUPERCLASS
+﻿Uma aplicação de gerenciamento de obras possui uma classe `ItemDeServico`,
+que serve tanto para representar itens de **mão de obra** quanto de **matéria prima**.
+Dependendo de um campo interno booleano chamado `EhMaoDeObra`, essa classe pode
+assumir o comportamento ou de **mão de obra** ou de **matéria prima**.
 
-```
-class Programa
-{
-    void Teste()
-    {
-        var item1 = new Item(new Produto("Escova dental Dentinho Feliz", 15), 15, 3);
-        var item2 = new Item(new Produto("Sabonete Flor da Manhã", 3), 3, 10);
-        var item3 = new Item(new Produto("Desodorante Man Power", 20), 20, 2);
+Que tipo de refatoração você sugere para este cenário? Escolha a melhor alternativa.
 
-        string nomeCliente = "João Snow";
-        string enderecoEntrega = "Castelo Estarque, Torre 2 - Vila do Norte";
-        var pedido = new Pedido(nomeCliente, enderecoEntrega);
-        var notaFiscal = new NotaFiscal(pedido);
-    }
-}
+A- Extrair Subclasse
+Isso mesmo! A classe `ItemDeServico` está acumulando tarefas e violando o Princípio
+da Responsabilidade Única (SRP - Single Responsibility Principle).
+Podemos extrair uma subclasse para cada tipo de item de serviço que essa
+classe representa: uma classe chamada `MateriaPrima` e outra chamada `MaoDeObra`.
+Dessa forma, ambas irão herdar da superclasse `ItemDeServico`.
 
-class Produto
-{
-    readonly string nome;
-    readonly decimal precoUnitario;
-    public string Nome => nome;
-    public decimal PrecoUnitario => precoUnitario;
-
-    public Produto(string nome, decimal precoUnitario)
-    {
-        this.nome = nome;
-        this.precoUnitario = precoUnitario;
-    }
-}
-
-class Item
-{
-    const decimal TAXA_IMPOSTO = 0.3m;
-
-    readonly Produto produto;
-    readonly decimal precoUnitario;
-    readonly int quantidade;
-    public decimal TotalDeImpostos => (quantidade * precoUnitario) * (1.0m + TAXA_IMPOSTO);
-
-    public decimal PrecoUnitario => precoUnitario;
-    public int Quantidade => quantidade;
-    internal Produto Produto => produto;
-
-    public decimal Total => quantidade * precoUnitario;
-
-    public Item(Produto produto, decimal precoUnitario, int quantidade)
-    {
-        this.produto = produto;
-        this.precoUnitario = precoUnitario;
-        this.quantidade = quantidade;
-    }
-}
-
-class Pedido
-{
-    readonly string nomeCliente;
-    public string NomeCliente => nomeCliente;
-
-    readonly string enderecoEntrega;
-    public string EnderecoEntrega => enderecoEntrega;
-
-    private readonly List<Item> itens = new List<Item>();
-    internal IReadOnlyCollection<Item> Itens => new ReadOnlyCollection<Item>(itens);
-
-
-    void Add(Item item)
-    {
-        itens.Add(item);
-    }
-
-    void Remove(Item item)
-    {
-        itens.Add(item);
-    }
-
-    public Pedido(string nomeCliente, string enderecoEntrega)
-    {
-        this.nomeCliente = nomeCliente;
-        this.enderecoEntrega = enderecoEntrega;
-    }
-
-    public decimal ValorDosItens()
-    {
-        return itens.Sum(i => i.Total);
-    }
-}
-
-class NotaFiscal
-{
-    readonly string nomeCliente;
-    readonly string enderecoEntrega;
-
-    private readonly List<Item> itens = new List<Item>();
-    internal IReadOnlyCollection<Item> Itens => new ReadOnlyCollection<Item>(itens);
-
-    public NotaFiscal(Pedido pedido)
-    {
-        this.itens.AddRange(pedido.Itens);
-    }
-
-    public decimal ValorDosItens()
-    {
-        return itens.Sum(i => i.Total);
-    }
-
-    public decimal ValorDosImpostos()
-    {
-        return itens.Sum(i => i.TotalDeImpostos);
-    }
-
-    public decimal ValorFatura()
-    {
-        return ValorDosItens() + ValorDosImpostos();
-    }
-}
-```
+B- Extrair Superclasse 
+Ops! Utilizamos **Extrair Superclasse** quando duas ou mais classes possuem métodos ou dados em comum.
+C- Extrair Interface
+Ops! **Extrair interface** não irá resolver o problema atual, que é o acúmulo de tarefas e violação do Princípio da Responsabilidade Única.
+D- Extrair Classe
+Quase! Usamos **Extrair Classe** quando partes de uma classe podem formar uma nova classe,
+porém neste cenário temos que estabelecer uma relação de hierarquia entre a classe `ItemDeServico` e
+as novas classes extraídas, portanto devemos usar **Extrair Subclasse**.
