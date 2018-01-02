@@ -1,49 +1,27 @@
-﻿REPLACEINHERITANCEWITHDELEGATION
+﻿Você está desenvolvendo uma aplicação para uma imobiliária.
 
-```
-class Programa
-{
-    void Teste()
-    {
-        var imovel = 
-            new Imovel("Rua dos Bobos, No. 0", 100000, 
-                        "Vinicius de Moraes", "123456789-00");
-    }
-}
+Essa aplicação tem uma classe chamada `Proprietario`, que herda da classe `Imovel`. 
 
-class Proprietario
-{
-    private readonly string nome;
-    private readonly string cpf;
+![Ex2](Ex2.png)
 
-    public string Nome { get => nome; }
-    public string CPF { get => cpf; }
+Porém, durante a revisão de código, você percebe que a classe `Imovel` não usa todos os membros da classe `Proprietario`,
+e que por isso é preciso aplicar uma refatoração.
 
-    private readonly IList<Imovel> imoveis = new List<Imovel>();
-    internal IList<Imovel> Imoveis => imoveis;
+Que técnica de refatoração você implementaria? Escolha a melhor alternativa.
 
-    private int numeroDeProcessos;
-    public int NumeroDeProcessos { get => numeroDeProcessos; set => numeroDeProcessos = value; }
+A- Substituir Herança por Delegação 
+Isso mesmo! No mundo real, um imóvel não possui imóveis, portanto temos aqui
+um **odor no código** (*code smell*) chamado **Herança Rejeitada**. Precisamos
+substituir essa herança por uma delegação. Em vez de **ser** um proprietário, um imóvel deve **ter** um proprietário.
 
-    public Proprietario(string nome, string cpf)
-    {
-        this.nome = nome;
-        this.cpf = cpf;
-    }
-}
+B- Substituir Delegação por Herança
+Ops! A classe `Imovel` já faz uma herança, logo essa opção não faz sentido.
 
-class Imovel : Proprietario
-{
-    private readonly String endereco;
-    private decimal valor;
+C- Colapsar Hierarquia
+Ops! Ambas as classes são bem definidas, úteis e distintas, portanto não podemos
+substituí-las por uma única classe.
 
-    public string NomeProprietario { get => this.Nome; }
+D- Extrair Classe
+Ops! Extrair classe não irá resolver o problema mais evidente, que é
+a herança mal utilizada.
 
-    public Imovel(string endereco, decimal valor, string nomeProprietario, string cpfProprietario) 
-        : base(nomeProprietario, cpfProprietario)
-    {
-        this.endereco = endereco;
-        this.valor = valor;
-    }
-}
-```
