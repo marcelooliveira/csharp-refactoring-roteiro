@@ -1,7 +1,7 @@
 ﻿Você desenvolveu uma aplicação de vendas online, que possui a classe `CalculadoraDePrecos()`
 para obter o desconto dado a um produto de acordo com a quantidade e tempo de cadastro do cliente:
 
-```<language>
+```
 public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos)
 {
     var result = descontoInicial;

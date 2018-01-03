@@ -39,7 +39,7 @@ Isso mesmo! Note que cada condição `if` possui a mesma instrução de retorno 
 
 Quando aplicamos **Consolidar Expressão Condicional**, podemos remover essa duplicação:
 
-```<language>
+```
 public decimal ValorSeguroAReceber()
 {
     if (NaoEhElegivelParaSeguro())

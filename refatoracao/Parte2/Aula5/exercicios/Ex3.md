@@ -1,6 +1,6 @@
 ﻿Numa aplicação de vendas online, você se depara com o código da classe `Pagamento` abaixo:
 
-```<language>
+```
 public void Pagar()		 
 {		 
     if (cartao != null) // temos que verificar nulo várias vezes		 

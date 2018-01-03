@@ -1,6 +1,6 @@
 ﻿Observe o código abaixo. Ele pressupõe que os objetos `contaCorrente` e `poupanca` são não-nulos:
 
-```<language>
+```
 class Programa
 {
     //..
@@ -23,7 +23,7 @@ Podemos criar um método chamado `ContasNaoNulas`, que verifica os pressupostos
 e impõe uma condição no início do método. Se a condição não for satisfeita, uma  
 exceção é lançada e o programa aborta antes que a transação bancária seja efetuada.
 
-```<language>
+```
 void AplicarNaPoupanca(ContaBancaria contaCorrente,
     ContaBancaria poupanca, decimal valor)
 {

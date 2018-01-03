@@ -2,7 +2,7 @@
 
 Nesse sistema, a classe Credito possui um método para calcular o crédito disponível:
 
-```<language>
+```
 class Credito
 {
     readonly string nomeCliente;

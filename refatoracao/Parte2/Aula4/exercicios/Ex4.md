@@ -31,7 +31,7 @@ Porém, o método pode ser refatorado, pois o uso da flag `encontrouPessoa` não
 
 1. Crie um novo método estático para consultar e retornar a lista das pessoas especiais:
 
-```<language>
+```
 private static IList<string> GetPessoasEspeciais()
 {
     return new List<string>
@@ -44,13 +44,13 @@ private static IList<string> GetPessoasEspeciais()
 
 2. Substitua as duas condições `if (person.Equals("..."))` por uma única condição que verifique a existência de uma pessoa na lista de pessoas especiais.
 
-```<language>
+```
 if (pessoasEspeciais.Contains(person))
 ```
 
 3. Em vez de atribuir valor à flag de controle, apenas retorne `true`, utilizando um _early return_.
 
-```<language>
+```
 if (pessoasEspeciais.Contains(person))
 {
     EnviarAlerta();
@@ -61,7 +61,7 @@ if (pessoasEspeciais.Contains(person))
 4. Remova a flag de controle do código.
 5. Ao final do método, retorne `false`.
 
-```<language>
+```
 public bool EncontrarPessoaEspecial(IList<string> pessoas)
 {
     IList<string> pessoasEspeciais = GetPessoasEspeciais();

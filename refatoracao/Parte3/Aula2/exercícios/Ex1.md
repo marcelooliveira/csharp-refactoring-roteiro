@@ -4,7 +4,7 @@ A classe `Funcionário` possi métodos especializados em gerar aumento
 para os funcionários, chamados `DarAumentoDe5PorCento()` e 
 `DarAumentoDe10PorCento`:
 
-```<language>
+```
 class Funcionario
 {
     readonly string nome;
@@ -37,7 +37,7 @@ Qual refatoração você aplicaria nessa classe? Escolha a melhor opção:
 A- 
 Criaria um método chamado `DarAumento()`, recebendo como parâmetro o aumento
 porcentual concedido:
-```<language>
+```
 public void DarAumento(decimal aumento)
 {
     salario += aumento / 100.0m;
@@ -51,7 +51,7 @@ para exigir como parâmetro o valor do aumento concedido.
 B- 
 Modificaria o método `DarAumentoDe10PorCento` para chamar o método
 `DarAumentoDe5PorCento()` duas vezes e assim eliminar a duplicação de código:
-```<language>
+```
 public void DarAumentoDe5PorCento()
 {
     salario *= 1.05m;
@@ -71,7 +71,7 @@ um aumento de 10%, mas sim de 10,25%! !**
 
 C-
 Substituiria os *números mágicos* `1.05m` e `1.10m` por constantes:
-```<language>
+```
 class Funcionario
 {
     private const decimal FATOR_AUMENTO_5_PORCENTO = 1.05m;
@@ -100,7 +100,7 @@ Removeria o método `DarAumentoDe10PorCento()`. Assim, o código cliente
 teria que chamar duas vezes o método `DarAumentoDe5PorCento()` para
 gerar um aumento de 10 por cento, mas com a vantagem de removermos o código
 duplicado.  
-```<language>
+```
 public void DarAumentoDe5PorCento()
 {
     salario *= 1.05m;

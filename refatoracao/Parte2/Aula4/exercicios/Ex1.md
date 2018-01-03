@@ -32,7 +32,7 @@ Entender essas condições implica em entender cada uma das partes em separado. 
 
 Com a técnica de refatoração **Decompor Condição**, o código ficaria assim:
 
-```<language>
+```
 public decimal GetValorTotal(DateTime data, int dias)
 {
     if (NaoEhVerao(data))

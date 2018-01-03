@@ -7,7 +7,7 @@ A aplicação está funcionando corretamente. Durante da revisão de código,
 você observa o código dos métodos `VerificarNotasFiscais` e `ObterNFPremiumEEnviarEmail`
 da classe `Cliente`:
 
-```<language>
+```
 public void VerificarNotasFiscais(IList<NotaFiscal> notasFiscais)
 {
     NotaFiscal nf = ObterNFPremiumEEnviarEmail(notasFiscais);
@@ -44,7 +44,7 @@ Implemente os passos necessários para realizar essa refatoração.
 1- Notamos o "número mágico" `10000` no meio do código, logo vamos implementar
 a técnica **Substituir Nùmero Mágico por Constante**:
 
-```<language>
+```
 private const int VALOR_NF_CLIENTE_PREMIUM = 10000;
 ```
 
@@ -52,7 +52,7 @@ private const int VALOR_NF_CLIENTE_PREMIUM = 10000;
 pegar uma dessas responsabilidades e criar um novo método, 
 que obtém a nota fiscal mas não envia o e-mail:
 
-```<language>
+```
 public NotaFiscal ObterNFPremium(IList<NotaFiscal> notasFiscais)
 {
  	foreach (var nf in notasFiscais)
@@ -69,7 +69,7 @@ public NotaFiscal ObterNFPremium(IList<NotaFiscal> notasFiscais)
 3- Já existe um método para envio do e-mail (método `EnviarEmailParabens`).
 Então vamos somente modificar o corpo do método `VerificarNotasFiscais` para gerar o cliente premium se necessário:
 
-```<language>
+```
 public void VerificarNotasFiscais(IList<NotaFiscal> notasFiscais)
 {
     NotaFiscal nf = ObterNFPremium(notasFiscais);

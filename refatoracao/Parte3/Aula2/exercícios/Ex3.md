@@ -3,7 +3,7 @@ o valor do Imposto de Circulação de Mercadorias e Serviços (ICMS).
 
 A classe `Programa` contém o seguinte código:
 
-```<language>
+```
 class Programa
 {
     void Main()

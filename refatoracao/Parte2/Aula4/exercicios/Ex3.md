@@ -2,7 +2,7 @@
 
 Num certo momento, você desenvovle a classe `Produto`:
 
-```<language>
+```
 public Produto(decimal preco, bool ehVendaPromocional)
 {
     this.preco = preco;
@@ -26,7 +26,7 @@ public Produto(decimal preco, bool ehVendaPromocional)
 Como você refatoraria  o código acima? Escolha a melhor alternativa:
 
 A-
-```<language>
+```
 public Produto(decimal preco, bool ehVendaPromocional)
 {
     this.preco = preco;
@@ -51,7 +51,7 @@ se chama **Consolidar Fragmentos Condicionais Duplicados**.
 
 
 B- 
-```<language>
+```
 public Produto(decimal preco, bool ehVendaPromocional)
 {
     this.preco = preco;
@@ -76,7 +76,7 @@ porém esse não é o único problema do código original. Ele possui trecho dup
 dos ramos da árvore condicional, e pode ser refatorado com a técnica **Consolidar Fragmentos Condicionais Duplicados**.
 
 C- 
-```<language>
+```
 public Produto(decimal preco, bool ehVendaPromocional)
 {
     this.preco = preco;
@@ -90,7 +90,7 @@ Ops! Ficou faltando atribuir um valor ao campo `this.precoFinal`.
 
 
 D- 
-```<language>
+```
 public Produto(decimal preco, bool ehVendaPromocional)
 {
     this.preco = preco;

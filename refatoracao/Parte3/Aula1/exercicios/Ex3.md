@@ -3,7 +3,7 @@ para obter o desconto dado a um produto de acordo com o desconto inicial e o tem
 Com o tempo essa aplicação foi sendo modificada, porém continua funcionando sem problemas. Hoje você teve a oportunidade de
 revisar o código. O método `GetDescontoFinal` atualmente tem esta aparência:
 
-```<language>
+```
 public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos, bool clienteNegativado)
 {
     if (clienteNegativado)

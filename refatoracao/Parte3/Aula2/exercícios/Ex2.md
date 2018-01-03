@@ -3,7 +3,7 @@
 A classe `Funcionario` do sistema possui um método `DarAumento´,
 que recebe o tipo do aumento (aumento por valor fixo ou porcentual):
 
-```<language>
+```
 public void DarAumento(int tipo, decimal aumento)
 {
     switch (tipo)
@@ -27,7 +27,7 @@ A-
 Substituiria o método `DarAumento` por dois métodos, cada um para
 um tipo de operação de aumento:
 
-```<language>
+```
 public void DarAumentoPorcentual(decimal aumento)
 {
     salario *= (1.0m + aumento / 100.0m);
@@ -46,7 +46,7 @@ Criaria duas subclasses diferentes, uma para cada tipo de aumento,
 e dentro delas criaria um método `DarAumento`, e chamaria o método
 da classe correta a partir método `DarAumento` original:
 
-```<language>
+```
 public void DarAumento(int tipo, decimal aumento)
 {
     switch (tipo)
@@ -73,7 +73,7 @@ criaria dois métodos estáticos `DarAumentoPorcentual` e `DarAumentoFixo`,
 para lidar com os tipos de aumento diferentes, e chamaria esses métodos
 a partir método `DarAumento` original:
 
-```<language>
+```
 public void DarAumento(int tipo, decimal aumento)
 {
     switch (tipo)
@@ -99,7 +99,7 @@ D-
 Modificaria o corpo do método `DarDesconto` para trocar o comando switch
 por "cláusulas de guarda" com _early returns_ e assim deixar o código mais limpo:
 
-```<language>
+```
 public void DarAumento(int tipo, decimal aumento)
 {
     if (tipo == TIPO_AUMENTO_FIXO)

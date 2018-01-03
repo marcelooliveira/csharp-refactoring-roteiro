@@ -1,6 +1,6 @@
 ﻿No código abaixo, como podemos refatorar? Escolha a melhor resposta.
 
-```<language>
+```
 public double GetVelocidade()
 {
     switch (tipo)
