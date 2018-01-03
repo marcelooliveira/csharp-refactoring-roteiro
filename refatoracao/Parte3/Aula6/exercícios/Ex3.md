@@ -2,7 +2,7 @@
 
 Essa aplicação tem uma classe chamada `Apartamento`, que contém uma instância da classe `Imovel`. 
 
-![Ex3](Ex3.png)
+![Ex3](https://s3.amazonaws.com/caelum-online-public/765-csharp-refatorando-codigo-parte-3/Ex3.png)
 
 Porém, durante a revisão de código, você percebe que a classe `Apartamento` está usando todos os membros da classe `Imovel`:
 

@@ -2,7 +2,7 @@
 
 Essa aplicação tem uma classe chamada `Proprietario`, que herda da classe `Imovel`. 
 
-![Ex2](Ex2.png)
+![Ex2](https://s3.amazonaws.com/caelum-online-public/765-csharp-refatorando-codigo-parte-3/Ex2.png)
 
 Porém, durante a revisão de código, você percebe que a classe `Imovel` não usa todos os membros da classe `Proprietario`,
 e que por isso é preciso aplicar uma refatoração.
